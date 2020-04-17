@@ -1,0 +1,25 @@
+@import "~src/styles.scss";
+
+.nav-padding {
+  padding-left: $page-side-padding;
+}
+
+.navbar {
+  height: 12vh;
+  border-bottom: 1px solid $border-color;
+}
+
+.navbar-collapse {
+  background-color: white;
+}
+
+@media screen and (max-width: 600px) {
+  li {
+    font-size: 24px!important;
+    border: 1px solid $border-color;
+  }
+}
+
+.li {
+  position: relative;
+}
