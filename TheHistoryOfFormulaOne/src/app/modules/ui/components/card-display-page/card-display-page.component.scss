@@ -5,4 +5,14 @@
   margin-top: 3%;
   padding-left: $page-side-padding;
   padding-right: $page-side-padding;
+
+  max-width: 100vw;
+
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .display-card-grid {
+    padding:0;
+  }
 }
