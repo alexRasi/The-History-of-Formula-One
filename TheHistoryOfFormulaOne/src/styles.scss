@@ -4,3 +4,13 @@ $light-gray-color: rgba(187, 187, 187, 0.5);
 
 $border-color: $light-gray-color;
 
+$small-title-font-size: 25px;
+$big-title-font-size: 78px;
+
+hr {
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
