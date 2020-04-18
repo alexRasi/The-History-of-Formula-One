@@ -16,3 +16,7 @@ hr {
   color: #333; /* old IE */
   background-color: #333; /* Modern Browsers */
 }
+
+html, body {
+  overflow-x: hidden!important;
+}
