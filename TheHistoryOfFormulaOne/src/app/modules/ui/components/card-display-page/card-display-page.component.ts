@@ -1,3 +1,4 @@
+import { CardGenericData } from 'src/app/models/CardGenericData';
 import { Component, OnInit, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataFetchingService } from 'src/app/modules/data-fetching/services/data-fetcing-service/data-fetching.service';
@@ -12,6 +13,8 @@ export class CardDisplayPageComponent implements OnInit {
 
   mainTitle: string;
 
+  cardGenericData: CardGenericData;
+
   constructor(route: ActivatedRoute, injector: Injector) {
     // Injecting the data subclass fetching service provided during routing
     const serviceToken = route.snapshot.data['requiredServiceToken'];
@@ -24,6 +27,10 @@ export class CardDisplayPageComponent implements OnInit {
     this.dataFetchingService.getData().subscribe(res => {
       console.log(res);
     })
+
+    this.dataFetchingService.getTransformedData().subscribe((data: CardGenericData) => {
+      this.cardGenericData = data;
+    });
   }
 
 }

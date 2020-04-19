@@ -1,16 +1,16 @@
 <div class="display-card container">
   <div class="card-image">
-    <div></div>
+    <div>{{altImageTitle}}</div>
   </div>
   <div class="card-info">
     <div class="col-12 card-row">
-      <h5 class="card-title">Thumbnail Label</h5>
+      <h5 class="card-title">{{label}}</h5>
     </div>
     <div class="col-12 card-row card-content">
-      aasdasdasdad
+      {{description}}
     </div>
     <div class="col-12 card-row">
-      <a [href]="'/'" class="card-more-info">More Info</a>
+      <a [href]="moreInfoLink" class="card-more-info">More Info</a>
     </div>
   </div>
 </div>
