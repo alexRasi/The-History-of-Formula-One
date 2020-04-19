@@ -1,9 +1,17 @@
+import { SeasonsResponseDTO } from './../../../../models/dtos/SeasonsReponseDTO';
+import { CardGenericData } from 'src/app/models/CardGenericData';
+import { CardGenericData } from './../../../../models/CardGenericData';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import * as _ from 'lodash';
 
 export abstract class DataFetchingService {
   abstract getData(): any
+  abstract getTransformedData()
+  abstract mapToCardGenericData(data: any)
 }
 
 @Injectable()
@@ -16,6 +24,28 @@ export class SeasonsFetchingService extends DataFetchingService {
   getData(): Observable<any> {
     return this.http.get(this.url);
   }
+
+  getTransformedData(): Observable<any> {
+    return this.getData().pipe(map(
+      data => this.mapToCardGenericData(data)
+    ))
+  }
+
+  mapToCardGenericData(seasonsResponse: SeasonsResponseDTO): CardGenericData[] {
+    const cardGenericData: CardGenericData[] = [];
+
+    seasonsResponse.MRData.SeasonTable.Seasons.forEach(
+      season => {
+        cardGenericData.push({
+          label: season.season,
+          description: season.url,
+          moreInfoLink: '/'
+        })
+      }
+    )
+
+    return cardGenericData
+  }
 }
 
 @Injectable()
@@ -27,6 +57,16 @@ export class DriversFetchingService extends DataFetchingService {
   getData(): Observable<any> {
     return this.http.get(this.url);
   }
+
+  getTransformedData(): Observable<any> {
+    return this.getData().pipe(map(
+      data => this.mapToCardGenericData(data)
+    ))
+  }
+
+  mapToCardGenericData(data: any): CardGenericData[] {
+    return data;
+  }
 }
 
 @Injectable()
@@ -37,6 +77,16 @@ export class ConstructorsFetchingService extends DataFetchingService {
 
   getData(): Observable<any> {
     return this.http.get(this.url);
+  }
+
+  getTransformedData(): Observable<any> {
+    return this.getData().pipe(map(
+      data => this.mapToCardGenericData(data)
+    ))
+  }
+
+  mapToCardGenericData(data: any): CardGenericData[] {
+    return data;
   }
 
 }
