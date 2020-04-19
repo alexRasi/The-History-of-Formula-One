@@ -1,6 +1,5 @@
 import { DriversResponseDTO } from './../../../../models/dtos/DriversResponseDTO';
 import { SeasonsResponseDTO } from './../../../../models/dtos/SeasonsReponseDTO';
-import { CardGenericData } from 'src/app/models/CardGenericData';
 import { CardGenericData } from './../../../../models/CardGenericData';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
