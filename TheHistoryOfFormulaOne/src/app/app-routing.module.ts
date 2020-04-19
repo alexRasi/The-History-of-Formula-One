@@ -8,6 +8,10 @@ const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
 
 const routes: Routes = [
   {
+    path: 'home',
+    loadChildren: () => import('./modules/pages/home-page/home-page.module').then(m => m.HomePageModule)
+  },
+  {
     path: 'seasons',
     data: {
       mainTitle: 'Seasons',
@@ -30,7 +34,9 @@ const routes: Routes = [
       requiredServiceToken: CONSTRUCTORS_SERVICE_TOKEN
     },
     loadChildren: () => import('./modules/pages/card-display-page/card-display-page.module').then(m => m.CardDisplayPageModule)
-  }
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
