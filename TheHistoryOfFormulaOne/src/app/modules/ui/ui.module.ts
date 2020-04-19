@@ -6,15 +6,17 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { CardDisplayPageComponent } from './components/card-display-page/card-display-page.component';
 import { TitleComponentComponent } from './components/title-component/title-component.component';
 import { DisplayCardComponent } from './components/display-card/display-card.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
-  declarations: [NavbarComponent, NavItemComponent, SearchInputComponent, CardDisplayPageComponent, TitleComponentComponent, DisplayCardComponent ],
+  declarations: [NavbarComponent, NavItemComponent, SearchInputComponent, CardDisplayPageComponent, TitleComponentComponent, DisplayCardComponent, HomePageComponent ],
   imports: [
     CommonModule
   ],
   exports: [
     NavbarComponent,
-    CardDisplayPageComponent
+    CardDisplayPageComponent,
+    HomePageComponent
   ]
 })
 export class UiModule { }

@@ -1,0 +1,12 @@
+.image {
+  /* The image used */
+  background-image: url("~src/assets/home-image.jpg");
+
+  /* Full height */
+  height: 88vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
