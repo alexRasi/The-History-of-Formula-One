@@ -10,14 +10,20 @@ import { DataFetchingService } from 'src/app/modules/data-fetching/services/data
 export class CardDisplayPageComponent implements OnInit {
   private dataFetchingService: DataFetchingService;
 
-  constructor(route: ActivatedRoute, injector: Injector) {
-    const serviceToken = route.snapshot.data['requiredService'];
+  mainTitle: string;
 
+  constructor(route: ActivatedRoute, injector: Injector) {
+    // Injecting the data subclass fetching service provided during routing
+    const serviceToken = route.snapshot.data['requiredServiceToken'];
     this.dataFetchingService = injector.get<DataFetchingService>(<any>serviceToken);
+
+    this.mainTitle = route.snapshot.data['mainTitle'];
    }
 
   ngOnInit() {
-    this.dataFetchingService.getData();
+    this.dataFetchingService.getData().subscribe(res => {
+      console.log(res);
+    })
   }
 
 }

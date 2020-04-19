@@ -1,4 +1,4 @@
-import { DataFetchingService } from './services/data-fetcing-service/data-fetching.service';
+import { DataFetchingService, SeasonsFetchingService } from './services/data-fetcing-service/data-fetching.service';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common'
     HttpClientModule
   ],
   providers: [
-    DataFetchingService
+    SeasonsFetchingService
   ]
 })
 export class DataFetchingModule { }

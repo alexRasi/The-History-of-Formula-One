@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class DataFetchingService {
+export abstract class DataFetchingService {
+  abstract getData(): any
+}
+
+@Injectable()
+export class SeasonsFetchingService extends DataFetchingService{
 
   url = 'http://ergast.com/api/f1/seasons.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    super();
+   }
 
-  getData() {
-    this.http.get(this.url).subscribe(res => {
-      console.log(res);
-    })
+  getData(): Observable<any> {
+    return this.http.get(this.url);
   }
 }
