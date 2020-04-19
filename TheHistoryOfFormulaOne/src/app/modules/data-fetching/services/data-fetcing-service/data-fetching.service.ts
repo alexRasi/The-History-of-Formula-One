@@ -1,3 +1,4 @@
+import { DriversResponseDTO } from './../../../../models/dtos/DriversResponseDTO';
 import { SeasonsResponseDTO } from './../../../../models/dtos/SeasonsReponseDTO';
 import { CardGenericData } from 'src/app/models/CardGenericData';
 import { CardGenericData } from './../../../../models/CardGenericData';
@@ -64,9 +65,22 @@ export class DriversFetchingService extends DataFetchingService {
     ))
   }
 
-  mapToCardGenericData(data: any): CardGenericData[] {
-    return data;
+  mapToCardGenericData(driversResponse: DriversResponseDTO): CardGenericData[] {
+    const cardGenericData: CardGenericData[] = [];
+
+    driversResponse.MRData.DriverTable.Drivers.forEach(
+      driver => {
+        cardGenericData.push({
+          label: driver.familyName + ' ' + driver.givenName,
+          description: driver.url,
+          moreInfoLink: '/'
+        })
+      }
+    )
+
+    return cardGenericData
   }
+
 }
 
 @Injectable()
