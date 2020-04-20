@@ -1,6 +1,8 @@
 import { NgModule, InjectionToken } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SeasonsFetchingService, DriversFetchingService, ConstructorsFetchingService } from './modules/data-fetching/services/data-fetcing-service/data-fetching.service';
+import { SeasonsFetchingService } from './modules/data-fetching/services/seasons-fetching-service/seasons-fetching.service';
+import { DriversFetchingService } from './modules/data-fetching/services/drivers-fetching-service/drivers-fetching.service';
+import { ConstructorsFetchingService } from './modules/data-fetching/services/constructors-fetching-service/constructors-fetching.service';
 
 const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
 const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("DriversService");

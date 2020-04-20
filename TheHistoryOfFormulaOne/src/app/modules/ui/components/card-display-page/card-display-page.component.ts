@@ -1,7 +1,7 @@
 import { CardGenericData } from 'src/app/models/CardGenericData';
 import { Component, OnInit, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataFetchingService } from 'src/app/modules/data-fetching/services/data-fetcing-service/data-fetching.service';
+import { DataFetchingService } from 'src/app/modules/data-fetching/services/data-fetching-base-service/data-fetching.service';
 import { LoadingSpinnerService } from '../../services/loading-spinner-service/loading-spinner.service';
 
 @Component({
@@ -13,6 +13,8 @@ export class CardDisplayPageComponent implements OnInit {
   private dataFetchingService: DataFetchingService;
 
   mainTitle: string;
+  titleAbove: string;
+  titleBelow: string;
 
   cardGenericData: CardGenericData;
 
