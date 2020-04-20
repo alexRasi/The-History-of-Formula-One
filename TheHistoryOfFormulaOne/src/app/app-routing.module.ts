@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SeasonsFetchingService, DriversFetchingService, ConstructorsFetchingService } from './modules/data-fetching/services/data-fetcing-service/data-fetching.service';
 
 const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
-const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
-const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
+const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("DriversService");
+const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("ConstructorsService");
 
 const routes: Routes = [
   {
