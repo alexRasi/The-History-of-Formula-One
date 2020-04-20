@@ -7,16 +7,26 @@ import { CardDisplayPageComponent } from './components/card-display-page/card-di
 import { TitleComponentComponent } from './components/title-component/title-component.component';
 import { DisplayCardComponent } from './components/display-card/display-card.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { SpinLoaderComponent } from './components/spin-loader/spin-loader.component';
 
 @NgModule({
-  declarations: [NavbarComponent, NavItemComponent, SearchInputComponent, CardDisplayPageComponent, TitleComponentComponent, DisplayCardComponent, HomePageComponent ],
+  declarations: [
+    NavbarComponent,
+    NavItemComponent,
+    SearchInputComponent,
+    CardDisplayPageComponent,
+    TitleComponentComponent,
+    DisplayCardComponent,
+    HomePageComponent,
+    SpinLoaderComponent],
   imports: [
     CommonModule
   ],
   exports: [
     NavbarComponent,
     CardDisplayPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    SpinLoaderComponent
   ]
 })
 export class UiModule { }
