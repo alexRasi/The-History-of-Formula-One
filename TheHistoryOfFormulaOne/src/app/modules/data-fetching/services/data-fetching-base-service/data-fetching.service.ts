@@ -1,4 +1,4 @@
 export abstract class DataFetchingService {
-  abstract getData(): any
-  abstract getTransformedData()
+  abstract getData(parameter?: any): any
+  abstract getTransformedData(parameter?: any): any
 }

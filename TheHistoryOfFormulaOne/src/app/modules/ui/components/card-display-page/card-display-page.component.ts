@@ -18,7 +18,7 @@ export class CardDisplayPageComponent implements OnInit {
 
   cardGenericData: CardGenericData;
 
-  constructor(route: ActivatedRoute, injector: Injector, private loadingSpinnerService: LoadingSpinnerService) {
+  constructor(private route: ActivatedRoute, injector: Injector, private loadingSpinnerService: LoadingSpinnerService) {
     // Injecting the data subclass fetching service provided during routing
     const serviceToken = route.snapshot.data['requiredServiceToken'];
     this.dataFetchingService = injector.get<DataFetchingService>(<any>serviceToken);
@@ -28,8 +28,10 @@ export class CardDisplayPageComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log
+
     this.loadingSpinnerService.showSpinner();
-    this.dataFetchingService.getTransformedData().subscribe((data: CardGenericData) => {
+    this.dataFetchingService.getTransformedData(this.route.snapshot.paramMap.get('id')).subscribe((data: CardGenericData) => {
       this.cardGenericData = data;
       this.loadingSpinnerService.hideSpinner();
     });
