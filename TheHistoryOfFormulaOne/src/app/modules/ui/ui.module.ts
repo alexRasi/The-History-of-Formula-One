@@ -9,6 +9,7 @@ import { DisplayCardComponent } from './components/display-card/display-card.com
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SpinLoaderComponent } from './components/spin-loader/spin-loader.component';
 import { ItemDisplayPageComponent } from './components/item-display-page/item-display-page.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ItemDisplayPageComponent } from './components/item-display-page/item-di
     DisplayCardComponent,
     HomePageComponent,
     SpinLoaderComponent,
-    ItemDisplayPageComponent
+    ItemDisplayPageComponent,
+    PaginatorComponent
   ],
   imports: [
     CommonModule
