@@ -1,3 +1,4 @@
+import { DriverItemFetchingService } from './modules/data-fetching/services/driver-item-fetching-service/driver-item-fetching.service';
 import { NgModule, InjectionToken } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SeasonsFetchingService } from './modules/data-fetching/services/seasons-fetching-service/seasons-fetching.service';
@@ -6,7 +7,7 @@ import { ConstructorsFetchingService } from './modules/data-fetching/services/co
 
 const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
 const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("DriversService");
-const DRIVER_ENTITY_SERVICE_TOKEN = new InjectionToken<string>("DriverEntityService");
+const DRIVER_ITEM_SERVICE_TOKEN = new InjectionToken<string>("DriverItemService");
 const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("ConstructorsService");
 
 const routes: Routes = [
@@ -41,7 +42,7 @@ const routes: Routes = [
   {
     path: 'drivers/:id',
     data: {
-      requiredServiceToken: DRIVER_ENTITY_SERVICE_TOKEN
+      requiredServiceToken: DRIVER_ITEM_SERVICE_TOKEN
     },
     loadChildren: () => import('./modules/pages/item-display-page/item-display-page.module').then(m => m.ItemDisplayPageModule)
   },
@@ -63,6 +64,10 @@ const routes: Routes = [
     {
       provide: CONSTRUCTORS_SERVICE_TOKEN,
       useClass: ConstructorsFetchingService
+    },
+    {
+      provide: DRIVER_ITEM_SERVICE_TOKEN,
+      useClass: DriverItemFetchingService
     }
   ]
 })

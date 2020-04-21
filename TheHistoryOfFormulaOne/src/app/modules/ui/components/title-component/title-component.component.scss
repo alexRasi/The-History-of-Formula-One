@@ -14,7 +14,8 @@ $title-y-padding: 3%;
 
 .small-title {
   font-size: $small-title-font-size;
-  font: 'Light' 25px/30px 'Roboto';
+  font-size: 18px;
+  font-weight: lighter;
   letter-spacing: 0px;
   color: $letter-color;
   opacity: 1;

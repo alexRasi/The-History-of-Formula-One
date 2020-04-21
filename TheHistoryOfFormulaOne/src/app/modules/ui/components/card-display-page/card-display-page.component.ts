@@ -27,9 +27,6 @@ export class CardDisplayPageComponent implements OnInit {
    }
 
   ngOnInit() {
-
-    console.log
-
     this.loadingSpinnerService.showSpinner();
     this.dataFetchingService.getTransformedData(this.route.snapshot.paramMap.get('id')).subscribe((data: CardGenericData) => {
       this.cardGenericData = data;
