@@ -18,7 +18,6 @@ const routes: Routes = [
   {
     path: 'seasons',
     data: {
-      mainTitle: 'Seasons',
       requiredServiceToken: SEASONS_SERVICE_TOKEN
     },
     loadChildren: () => import('./modules/pages/card-display-page/card-display-page.module').then(m => m.CardDisplayPageModule)
@@ -26,7 +25,6 @@ const routes: Routes = [
   {
     path: 'drivers',
     data: {
-      mainTitle: 'Drivers',
       requiredServiceToken: DRIVERS_SERVICE_TOKEN
     },
     loadChildren: () => import('./modules/pages/card-display-page/card-display-page.module').then(m => m.CardDisplayPageModule)
@@ -34,7 +32,6 @@ const routes: Routes = [
   {
     path: 'constructors',
     data: {
-      mainTitle: 'Constructors',
       requiredServiceToken: CONSTRUCTORS_SERVICE_TOKEN
     },
     loadChildren: () => import('./modules/pages/card-display-page/card-display-page.module').then(m => m.CardDisplayPageModule)

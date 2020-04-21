@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DriversResponseDTO } from 'src/app/models/dtos/DriversResponseDTO';
 import { CardGenericData } from 'src/app/models/CardGenericData';
+import { CardDisplayPageGenericData } from 'src/app/models/CardDisplayPageGenericData';
 
 @Injectable()
 export class DriversFetchingService extends DataFetchingService {
@@ -22,7 +23,7 @@ export class DriversFetchingService extends DataFetchingService {
     ))
   }
 
-  mapToCardGenericData(driversResponse: DriversResponseDTO): CardGenericData[] {
+  mapToCardGenericData(driversResponse: DriversResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
 
     driversResponse.MRData.DriverTable.Drivers.forEach(
@@ -35,7 +36,7 @@ export class DriversFetchingService extends DataFetchingService {
       }
     )
 
-    return cardGenericData
+    return {cards: cardGenericData, title: 'Drivers'}
   }
 
 }

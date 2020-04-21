@@ -1,6 +1,6 @@
-<app-title-component [mainTitle]="mainTitle" [titleAbove]="'1997'" [titleBelow]="titleBelow" ></app-title-component>
+<app-title-component [mainTitle]="pageData.title" [titleAbove]="pageData.aboveTitle" [titleBelow]="pageData.belowTitle" ></app-title-component>
 <div class="container display-card-grid d-flex">
-  <app-display-card *ngFor="let card of cardGenericData"
+  <app-display-card *ngFor="let card of pageData.cards"
   [altImageTitle]="card.altImageTitle"
   [description]="card.description"
   [label]="card.label"
