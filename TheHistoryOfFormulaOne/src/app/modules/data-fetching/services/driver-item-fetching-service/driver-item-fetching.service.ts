@@ -5,8 +5,6 @@ import { DataFetchingService } from '../data-fetching-base-service/data-fetching
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DriversResponseDTO } from 'src/app/models/dtos/DriversResponseDTO';
-import { CardGenericData } from 'src/app/models/CardGenericData';
 
 @Injectable()
 export class DriverItemFetchingService extends DataFetchingService {

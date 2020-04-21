@@ -1,3 +1,4 @@
+import { ConstructorItemFetchingService } from './modules/data-fetching/services/constructor-item-fetching-service/constructor-item-fetching.service';
 import { DriverItemFetchingService } from './modules/data-fetching/services/driver-item-fetching-service/driver-item-fetching.service';
 import { NgModule, InjectionToken } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,6 +10,7 @@ const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
 const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("DriversService");
 const DRIVER_ITEM_SERVICE_TOKEN = new InjectionToken<string>("DriverItemService");
 const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("ConstructorsService");
+const CONSTRUCTOR_ITEM_SERVICE_TOKEN = new InjectionToken<string>("ConstructorItemService");
 
 const routes: Routes = [
   {
@@ -43,7 +45,13 @@ const routes: Routes = [
     },
     loadChildren: () => import('./modules/pages/item-display-page/item-display-page.module').then(m => m.ItemDisplayPageModule)
   },
-
+  {
+    path: 'constructors/:id',
+    data: {
+      requiredServiceToken: CONSTRUCTOR_ITEM_SERVICE_TOKEN
+    },
+    loadChildren: () => import('./modules/pages/item-display-page/item-display-page.module').then(m => m.ItemDisplayPageModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' },
 ];
@@ -66,6 +74,10 @@ const routes: Routes = [
     {
       provide: DRIVER_ITEM_SERVICE_TOKEN,
       useClass: DriverItemFetchingService
+    },
+    {
+      provide: CONSTRUCTOR_ITEM_SERVICE_TOKEN,
+      useClass: ConstructorItemFetchingService
     }
   ]
 })

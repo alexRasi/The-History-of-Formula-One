@@ -35,7 +35,7 @@ export class ConstructorsFetchingService extends DataFetchingService {
         cardGenericData.push({
           label: constructor.name,
           description: constructor.url,
-          moreInfoLink: ''
+          moreInfoLink: 'constructors/' + constructor.constructorId
         })
       }
     )
