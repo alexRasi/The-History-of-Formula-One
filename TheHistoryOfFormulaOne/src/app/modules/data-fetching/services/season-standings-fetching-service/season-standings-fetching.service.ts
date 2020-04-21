@@ -28,9 +28,9 @@ export class SeasonStandingsFetchingService extends DataFetchingService {
     standingsResponse.MRData.StandingsTable.StandingsLists[0].DriverStandings.forEach(
       driver => {
         cardGenericData.push({
-          label: driver.position + '. ' + driver.Driver.givenName + ' ' + driver.Driver.familyName,
+          label: '#' + driver.position + ' ' + driver.Driver.givenName + ' ' + driver.Driver.familyName,
           description: driver.Driver.url,
-          moreInfoLink: '/'
+          moreInfoLink: 'drivers/Alex'
         })
       }
     )

@@ -6,6 +6,7 @@ import { ConstructorsFetchingService } from './modules/data-fetching/services/co
 
 const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
 const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("DriversService");
+const DRIVER_ENTITY_SERVICE_TOKEN = new InjectionToken<string>("DriverEntityService");
 const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("ConstructorsService");
 
 const routes: Routes = [
@@ -36,6 +37,13 @@ const routes: Routes = [
       requiredServiceToken: CONSTRUCTORS_SERVICE_TOKEN
     },
     loadChildren: () => import('./modules/pages/card-display-page/card-display-page.module').then(m => m.CardDisplayPageModule)
+  },
+  {
+    path: 'drivers/:id',
+    data: {
+      requiredServiceToken: DRIVER_ENTITY_SERVICE_TOKEN
+    },
+    loadChildren: () => import('./modules/pages/item-display-page/item-display-page.module').then(m => m.ItemDisplayPageModule)
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' },

@@ -30,7 +30,7 @@ export class DriversFetchingService extends DataFetchingService {
         cardGenericData.push({
           label: driver.familyName + ' ' + driver.givenName,
           description: driver.url,
-          moreInfoLink: '/'
+          moreInfoLink: '/drivers/' + driver.driverId
         })
       }
     )

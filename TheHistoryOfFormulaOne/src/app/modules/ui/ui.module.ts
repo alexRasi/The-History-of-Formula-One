@@ -8,6 +8,7 @@ import { TitleComponentComponent } from './components/title-component/title-comp
 import { DisplayCardComponent } from './components/display-card/display-card.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SpinLoaderComponent } from './components/spin-loader/spin-loader.component';
+import { ItemDisplayPageComponent } from './components/item-display-page/item-display-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { SpinLoaderComponent } from './components/spin-loader/spin-loader.compon
     TitleComponentComponent,
     DisplayCardComponent,
     HomePageComponent,
-    SpinLoaderComponent],
+    SpinLoaderComponent,
+    ItemDisplayPageComponent
+  ],
   imports: [
     CommonModule
   ],
@@ -26,7 +29,8 @@ import { SpinLoaderComponent } from './components/spin-loader/spin-loader.compon
     NavbarComponent,
     CardDisplayPageComponent,
     HomePageComponent,
-    SpinLoaderComponent
+    SpinLoaderComponent,
+    ItemDisplayPageComponent
   ]
 })
 export class UiModule { }
