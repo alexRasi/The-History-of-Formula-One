@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SeasonsResponseDTO } from 'src/app/models/dtos/SeasonsReponseDTO';
 import { CardGenericData } from 'src/app/models/CardGenericData';
+import { CardDisplayPageGenericData } from 'src/app/models/CardDisplayPageGenericData';
 
 @Injectable()
 export class SeasonsFetchingService extends DataFetchingService {
@@ -23,7 +24,7 @@ export class SeasonsFetchingService extends DataFetchingService {
     ))
   }
 
-  mapToCardGenericData(seasonsResponse: SeasonsResponseDTO): CardGenericData[] {
+  mapToCardGenericData(seasonsResponse: SeasonsResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
 
     seasonsResponse.MRData.SeasonTable.Seasons.forEach(
@@ -36,6 +37,6 @@ export class SeasonsFetchingService extends DataFetchingService {
       }
     )
 
-    return cardGenericData
+    return {cards: cardGenericData, title: 'Seasons'}
   }
 }
