@@ -14,12 +14,12 @@ export class SeasonsFetchingService extends DataFetchingService {
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(): Observable<any> {
-    return this.http.get(this.url);
+  getData(parameter: any, limit: number, offset: number): Observable<any> {
+    return this.http.get(`${this.url}?limit=${limit}&offset=${offset}`);
   }
 
-  getTransformedData(): Observable<any> {
-    return this.getData().pipe(map(
+  getTransformedData(parameter: any, limit: number, offset: number): Observable<any> {
+    return this.getData(parameter, limit, offset).pipe(map(
       data => this.mapToCardGenericData(data)
     ))
   }
