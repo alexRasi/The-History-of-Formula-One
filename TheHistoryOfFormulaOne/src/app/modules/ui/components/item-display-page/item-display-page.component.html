@@ -1,0 +1,15 @@
+<app-title-component [mainTitle]="pageData?.title" [titleAbove]="pageData?.titleAbove"></app-title-component>
+<div class="container item-display d-flex">
+  <div class="col-sm-12 col-md-6 item-details">
+    <h3 class="details-title">Details:</h3>
+    <div class="d-flex" *ngFor="let detail of pageData?.details">
+      <div class="details-attribute">{{detail?.attribute}}</div>
+      :&nbsp;
+      <div class="details-value">{{detail?.value}}</div>
+    </div>
+    <p class="mt-4 description">
+      {{pageData?.description}}
+    </p>
+  </div>
+  <div class="col-sm-12 col-md-6 item-image"></div>
+</div>

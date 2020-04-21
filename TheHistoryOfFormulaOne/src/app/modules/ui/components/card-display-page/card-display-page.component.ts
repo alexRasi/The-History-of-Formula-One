@@ -13,8 +13,8 @@ export class CardDisplayPageComponent implements OnInit {
   private dataFetchingService: DataFetchingService;
 
   mainTitle: string;
-  titleAbove: string;
-  titleBelow: string;
+  titleAbove: '1997';
+  titleBelow: 'test';
 
   cardGenericData: CardGenericData;
 
