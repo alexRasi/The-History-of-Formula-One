@@ -4,3 +4,13 @@
   color: $letter-color!important;
   cursor: pointer;
 }
+
+.page-input {
+  width: 50px !important;
+  text-align: right;
+}
+
+.total-pages {
+  border-left: none;
+  word-spacing: 5px;
+}

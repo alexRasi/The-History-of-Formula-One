@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-paginator',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class PaginatorComponent implements OnInit {
 
-  @Input() limit: number;
+  @Input() totalPages: number;
 
   @Output() pageClickedEvent = new EventEmitter<number>();
 
@@ -19,7 +20,10 @@ export class PaginatorComponent implements OnInit {
   }
 
   next() {
-    this.currentPage++;
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+
     this.pageClickedEvent.emit(this.currentPage);
   }
 
@@ -29,6 +33,20 @@ export class PaginatorComponent implements OnInit {
     }
 
     this.pageClickedEvent.emit(this.currentPage)
+  }
+
+  goToLastPage() {
+    this.currentPage = this.totalPages;
+    this.pageClickedEvent.emit(this.currentPage)
+  }
+
+  goToFirstPage() {
+    this.currentPage = 1;
+    this.pageClickedEvent.emit(this.currentPage)
+  }
+
+  emitPageChange() {
+    this.pageClickedEvent.emit(this.currentPage);
   }
 
 }

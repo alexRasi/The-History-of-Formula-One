@@ -1,7 +1,17 @@
 <nav aria-label="Page navigation">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" (click)="previous()">Previous</a></li>
-    <li class="page-item"><a class="page-link">{{currentPage}}</a></li>
-    <li class="page-item"><a class="page-link" (click)="next()">Next</a></li>
+    <li class="page-item" title="First page">
+      <a class="page-link" (click)="goToFirstPage()">
+        <i class="fa fa-step-backward" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="page-item" title="Previous"><a class="page-link" (click)="previous()"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+    <li class="page-item" ><input class="page-link page-input w-10" [(ngModel)]="currentPage" (keyup.enter)="emitPageChange()"></li>
+    <li class="page-item" title="Next"><a class="page-link total-pages">of {{totalPages}} </a></li>
+    <li class="page-item" title="Next"><a class="page-link" (click)="next()"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+    <li class="page-item" title="Last page">
+      <a class="page-link" (click)="goToLastPage()">
+        <i class="fa fa-step-forward" aria-hidden="true"></i>
+      </a></li>
   </ul>
 </nav>
