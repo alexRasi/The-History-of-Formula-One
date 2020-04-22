@@ -5,4 +5,5 @@ export interface CardDisplayPageGenericData {
   title: string;
   aboveTitle?: string;
   belowTitle?: string;
+  totalData: number;
 }

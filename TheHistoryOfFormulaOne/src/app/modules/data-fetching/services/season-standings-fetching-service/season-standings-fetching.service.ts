@@ -9,16 +9,15 @@ import { CardDisplayPageGenericData } from 'src/app/models/CardDisplayPageGeneri
 
 @Injectable()
 export class SeasonStandingsFetchingService extends DataFetchingService {
-  url = 'http://ergast.com/api/f1/drivers.json';
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(year: number): Observable<any> {
-    return this.http.get('http://ergast.com/api/f1/' + year.toString() + '/driverStandings.json');
+  getData(year: number, limit: number, offset: number): Observable<any> {
+    return this.http.get(`http://ergast.com/api/f1/${year.toString()}/driverStandings.json?limit=${limit}&offset=${offset}`);
   }
 
-  getTransformedData(year: number): Observable<any> {
-    return this.getData(year).pipe(map(
+  getTransformedData(parameter: any, limit: number, offset: number): Observable<any> {
+    return this.getData(parameter, limit, offset).pipe(map(
       data => this.mapToCardGenericData(data)
     ))
   }
@@ -26,6 +25,7 @@ export class SeasonStandingsFetchingService extends DataFetchingService {
   mapToCardGenericData(standingsResponse: SeasonStandingsResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
     const titleAbove = standingsResponse.MRData.StandingsTable.season;
+    const totalData: number = +standingsResponse.MRData.total;
 
     standingsResponse.MRData.StandingsTable.StandingsLists[0].DriverStandings.forEach(
       driver => {
@@ -38,7 +38,7 @@ export class SeasonStandingsFetchingService extends DataFetchingService {
       }
     )
 
-    return {cards: cardGenericData, title: 'Season Standings', aboveTitle: titleAbove}
+    return { cards: cardGenericData, title: 'Season Standings', aboveTitle: titleAbove, totalData }
   }
 
 }

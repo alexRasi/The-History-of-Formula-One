@@ -17,6 +17,11 @@ export class CardDisplayPageComponent implements OnInit {
 
   cardGenericData: CardGenericData;
 
+  paginationLimit = 10;
+  totalPages: number;
+
+  queryParameter = this.route.snapshot.paramMap.get('id');
+
   constructor(private route: ActivatedRoute, injector: Injector, private loadingSpinnerService: LoadingSpinnerService) {
     // Injecting the data subclass fetching service provided during routing
     const serviceToken = route.snapshot.data['requiredServiceToken'];
@@ -24,11 +29,19 @@ export class CardDisplayPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadData(this.queryParameter, this.paginationLimit, 0);
+  }
+
+  loadData(parameter: any, limit: number, offset: number) {
     this.loadingSpinnerService.showSpinner();
-    this.dataFetchingService.getTransformedData(this.route.snapshot.paramMap.get('id')).subscribe((pageData: CardDisplayPageGenericData) => {
+    this.dataFetchingService.getTransformedData(parameter, limit, offset).subscribe((pageData: CardDisplayPageGenericData) => {
       this.pageData = pageData;
+      this.totalPages = Math.ceil(pageData.totalData / this.paginationLimit);
       this.loadingSpinnerService.hideSpinner();
     });
   }
 
+  paginatorClicked(page: number) {
+    this.loadData(this.queryParameter, this.paginationLimit, (page-1) * this.paginationLimit);
+  }
 }

@@ -15,22 +15,21 @@ export class ConstructorsFetchingService extends DataFetchingService {
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(): Observable<any> {
-    return this.http.get(this.url);
+  getData(parameter: any, limit: number, offset: number): Observable<any> {
+    return this.http.get(`${this.url}?limit=${limit}&offset=${offset}`);
   }
 
-  getTransformedData(): Observable<any> {
-    return this.getData().pipe(map(
+  getTransformedData(parameter: any, limit: number, offset: number): Observable<any> {
+    return this.getData(parameter, limit, offset).pipe(map(
       data => this.mapToCardDisplayPageGenericData(data)
     ))
   }
 
-  mapToCardDisplayPageGenericData(constructors: ConstructorsResponseDTO): CardDisplayPageGenericData {
+  mapToCardDisplayPageGenericData(constructorsResponse: ConstructorsResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
+    const totalData: number = +constructorsResponse.MRData.total;
 
-    console.log(constructors);
-
-    constructors.MRData.ConstructorTable.Constructors.forEach(
+    constructorsResponse.MRData.ConstructorTable.Constructors.forEach(
       constructor => {
         cardGenericData.push({
           label: constructor.name,
@@ -40,7 +39,7 @@ export class ConstructorsFetchingService extends DataFetchingService {
       }
     )
 
-    return {cards: cardGenericData, title: 'Constructors'}
+    return {cards: cardGenericData, title: 'Constructors', totalData}
   }
 
 }

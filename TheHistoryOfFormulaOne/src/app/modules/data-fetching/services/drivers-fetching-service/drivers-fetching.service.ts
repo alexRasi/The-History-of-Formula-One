@@ -13,18 +13,19 @@ export class DriversFetchingService extends DataFetchingService {
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(): Observable<any> {
-    return this.http.get(this.url);
+  getData(parameter: any, limit: number, offset: number): Observable<any> {
+    return this.http.get(`${this.url}?limit=${limit}&offset=${offset}`);
   }
 
-  getTransformedData(): Observable<any> {
-    return this.getData().pipe(map(
+  getTransformedData(parameter: any, limit: number, offset: number): Observable<any> {
+    return this.getData(parameter, limit, offset).pipe(map(
       data => this.mapToCardGenericData(data)
     ))
   }
 
   mapToCardGenericData(driversResponse: DriversResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
+    const totalData: number = +driversResponse.MRData.total;
 
     driversResponse.MRData.DriverTable.Drivers.forEach(
       driver => {
@@ -36,7 +37,7 @@ export class DriversFetchingService extends DataFetchingService {
       }
     )
 
-    return {cards: cardGenericData, title: 'Drivers'}
+    return {cards: cardGenericData, title: 'Drivers', totalData}
   }
 
 }

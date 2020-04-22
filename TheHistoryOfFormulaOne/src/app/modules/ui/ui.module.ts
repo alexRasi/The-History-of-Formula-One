@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
@@ -9,6 +10,7 @@ import { DisplayCardComponent } from './components/display-card/display-card.com
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SpinLoaderComponent } from './components/spin-loader/spin-loader.component';
 import { ItemDisplayPageComponent } from './components/item-display-page/item-display-page.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { ItemDisplayPageComponent } from './components/item-display-page/item-di
     DisplayCardComponent,
     HomePageComponent,
     SpinLoaderComponent,
-    ItemDisplayPageComponent
+    ItemDisplayPageComponent,
+    PaginatorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent,
