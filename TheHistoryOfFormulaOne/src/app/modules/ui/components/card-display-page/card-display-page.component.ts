@@ -18,6 +18,7 @@ export class CardDisplayPageComponent implements OnInit {
   cardGenericData: CardGenericData;
 
   paginationLimit = 10;
+  totalPages: number;
 
   queryParameter = this.route.snapshot.paramMap.get('id');
 
@@ -35,6 +36,7 @@ export class CardDisplayPageComponent implements OnInit {
     this.loadingSpinnerService.showSpinner();
     this.dataFetchingService.getTransformedData(parameter, limit, offset).subscribe((pageData: CardDisplayPageGenericData) => {
       this.pageData = pageData;
+      this.totalPages = Math.ceil(pageData.totalData / this.paginationLimit);
       this.loadingSpinnerService.hideSpinner();
     });
   }
@@ -42,5 +44,4 @@ export class CardDisplayPageComponent implements OnInit {
   paginatorClicked(page: number) {
     this.loadData(this.queryParameter, this.paginationLimit, (page-1) * this.paginationLimit);
   }
-
 }

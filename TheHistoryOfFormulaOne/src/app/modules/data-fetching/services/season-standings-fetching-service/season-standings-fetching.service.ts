@@ -25,6 +25,7 @@ export class SeasonStandingsFetchingService extends DataFetchingService {
   mapToCardGenericData(standingsResponse: SeasonStandingsResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
     const titleAbove = standingsResponse.MRData.StandingsTable.season;
+    const totalData: number = +standingsResponse.MRData.total;
 
     standingsResponse.MRData.StandingsTable.StandingsLists[0].DriverStandings.forEach(
       driver => {
@@ -37,7 +38,7 @@ export class SeasonStandingsFetchingService extends DataFetchingService {
       }
     )
 
-    return { cards: cardGenericData, title: 'Season Standings', aboveTitle: titleAbove }
+    return { cards: cardGenericData, title: 'Season Standings', aboveTitle: titleAbove, totalData }
   }
 
 }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
@@ -25,7 +26,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     PaginatorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent,

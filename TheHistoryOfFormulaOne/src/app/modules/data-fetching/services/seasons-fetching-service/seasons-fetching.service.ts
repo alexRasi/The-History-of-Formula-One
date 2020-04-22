@@ -26,6 +26,7 @@ export class SeasonsFetchingService extends DataFetchingService {
 
   mapToCardGenericData(seasonsResponse: SeasonsResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
+    const totalData: number = +seasonsResponse.MRData.total;
 
     seasonsResponse.MRData.SeasonTable.Seasons.forEach(
       season => {
@@ -37,6 +38,6 @@ export class SeasonsFetchingService extends DataFetchingService {
       }
     )
 
-    return {cards: cardGenericData, title: 'Seasons'}
+    return {cards: cardGenericData, title: 'Seasons', totalData}
   }
 }

@@ -25,6 +25,7 @@ export class DriversFetchingService extends DataFetchingService {
 
   mapToCardGenericData(driversResponse: DriversResponseDTO): CardDisplayPageGenericData {
     const cardGenericData: CardGenericData[] = [];
+    const totalData: number = +driversResponse.MRData.total;
 
     driversResponse.MRData.DriverTable.Drivers.forEach(
       driver => {
@@ -36,7 +37,7 @@ export class DriversFetchingService extends DataFetchingService {
       }
     )
 
-    return {cards: cardGenericData, title: 'Drivers'}
+    return {cards: cardGenericData, title: 'Drivers', totalData}
   }
 
 }
