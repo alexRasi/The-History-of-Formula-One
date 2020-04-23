@@ -10,7 +10,7 @@ import { CardDisplayPageGenericData } from 'src/app/models/CardDisplayPageGeneri
 
 
 @Injectable()
-export class ConstructorsFetchingService extends DataFetchingService {
+export class ConstructorsFetchingService extends DataFetchingService<CardGenericData> {
   url = 'http://ergast.com/api/f1/constructors.json';
 
   constructor(private http: HttpClient) { super(); }
@@ -19,7 +19,7 @@ export class ConstructorsFetchingService extends DataFetchingService {
     return this.http.get(`${this.url}?limit=${limit}&offset=${offset}`);
   }
 
-  getTransformedData(parameter: any, limit: number, offset: number): Observable<any> {
+  getTransformedData(parameter: any, limit: number, offset: number): Observable<CardDisplayPageGenericData> {
     return this.getData(parameter, limit, offset).pipe(map(
       data => this.mapToCardDisplayPageGenericData(data)
     ))

@@ -1,3 +1,4 @@
+import { ItemGenericDetail } from './../../../../models/ItemGenericDetail';
 import { ConstructorItemResponseDTO } from './../../../../models/dtos/ConstructorItemResponseDTO';
 import { DriverItemResponseDTO } from './../../../../models/dtos/DriverItemResponseDTO';
 import { ItemDisplayPageGenericData } from 'src/app/models/ItemDisplayPageGenericData';
@@ -10,7 +11,7 @@ import { DriversResponseDTO } from 'src/app/models/dtos/DriversResponseDTO';
 import { CardGenericData } from 'src/app/models/CardGenericData';
 
 @Injectable()
-export class ConstructorItemFetchingService extends DataFetchingService {
+export class ConstructorItemFetchingService extends DataFetchingService<ItemGenericDetail> {
   url = 'http://ergast.com/api/f1/constructors';
 
   constructor(private http: HttpClient) { super(); }
