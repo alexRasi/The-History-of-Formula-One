@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { UiModule } from './modules/ui/ui.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,8 +14,9 @@ import { DataFetchingModule } from './modules/data-fetching/data-fetching.module
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     UiModule,
-    DataFetchingModule
+    DataFetchingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
