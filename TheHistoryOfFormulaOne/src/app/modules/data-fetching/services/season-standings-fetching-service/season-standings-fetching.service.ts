@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { CardDisplayPageGenericData } from 'src/app/models/CardDisplayPageGenericData';
 
 @Injectable()
-export class SeasonStandingsFetchingService extends DataFetchingService {
+export class SeasonStandingsFetchingService extends DataFetchingService<CardGenericData> {
 
   constructor(private http: HttpClient) { super(); }
 

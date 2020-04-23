@@ -1,3 +1,4 @@
+import { ItemGenericDetail } from './../../../../models/ItemGenericDetail';
 import { DriverItemResponseDTO } from './../../../../models/dtos/DriverItemResponseDTO';
 import { ItemDisplayPageGenericData } from 'src/app/models/ItemDisplayPageGenericData';
 import { Injectable } from '@angular/core';
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
-export class DriverItemFetchingService extends DataFetchingService {
+export class DriverItemFetchingService extends DataFetchingService<ItemGenericDetail> {
   url = 'http://ergast.com/api/f1/drivers';
 
   constructor(private http: HttpClient) { super(); }
