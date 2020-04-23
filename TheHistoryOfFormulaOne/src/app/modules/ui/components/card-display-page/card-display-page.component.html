@@ -9,7 +9,7 @@
     class="col-xs-12  col-sm-12 col-md-6 col-lg-4 pb-5">
   </app-display-card>
   <div class="paginator w-100">
-    <app-paginator [totalPages]="totalPages" (pageClickedEvent)="paginatorClicked($event)"></app-paginator>
+    <app-paginator *ngIf="dataSource" [totalPages]="totalPages" (pageClickedEvent)="paginatorClicked($event)"></app-paginator>
   </div>
   </div>
 </div>

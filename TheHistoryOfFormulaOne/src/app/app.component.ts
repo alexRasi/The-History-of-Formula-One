@@ -11,3 +11,4 @@ export class AppComponent {
 
   constructor(public loadingSpinnerService: LoadingSpinnerService) {}
 }
+

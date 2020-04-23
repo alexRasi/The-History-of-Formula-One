@@ -1,5 +1,5 @@
 import { ItemGenericDetail } from './../../../../models/ItemGenericDetail';
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, Inject } from '@angular/core';
 import { ItemDisplayPageGenericData } from 'src/app/models/ItemDisplayPageGenericData';
 import { ActivatedRoute } from '@angular/router';
 import { DataFetchingService } from 'src/app/modules/data-fetching/services/data-fetching-base-service/data-fetching.service';
@@ -15,7 +15,7 @@ export class ItemDisplayPageComponent implements OnInit {
 
   pageData: ItemDisplayPageGenericData;
 
-  constructor(private route: ActivatedRoute, injector: Injector, private loadingSpinnerService: LoadingSpinnerService) {
+  constructor(private route: ActivatedRoute, @Inject(Injector) injector: Injector, private loadingSpinnerService: LoadingSpinnerService) {
     // Injecting the data subclass fetching service provided during routing
     const serviceToken = route.snapshot.data['requiredServiceToken'];
     this.dataFetchingService = injector.get<DataFetchingService<ItemGenericDetail>>(<any>serviceToken);

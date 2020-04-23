@@ -1,3 +1,4 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DisplayCardComponent } from './display-card.component';
@@ -8,6 +9,7 @@ describe('DisplayCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [ DisplayCardComponent ]
     })
     .compileComponents();
