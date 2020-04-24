@@ -39,13 +39,12 @@ export class CardDisplayPageComponent implements OnInit {
 
   ngOnInit() {
     this.cache = this.cacheService.getCache(this.serviceToken); // serviceToken = entity name
-    console.log(this.cache);
+
     if (!this.cache) {
       this.cache = this.cacheService.newCache(this.serviceToken);
       this.cache.cards = [];
     }
 
-    this.loadDataFromCache();
     this.loadData(this.queryParameter, this.paginationLimit, 0);
   }
 
@@ -54,16 +53,11 @@ export class CardDisplayPageComponent implements OnInit {
 
     let cachedData = this.cacheService.getFromCache(this.cache.cards, limit, offset);
 
-    if (cachedData[0] && !this.isEmptyObject(cachedData[0])) {
+    if (this.cacheExists(cachedData)) {
       this.handleCachedData(cachedData);
-      this.loadingSpinnerService.hideSpinner();
     } else {
       this.handleUncachedData(parameter, limit, offset);
     }
-  }
-
-  paginatorClicked(page: number) {
-    this.loadData(this.queryParameter, this.paginationLimit, (page - 1) * this.paginationLimit);
   }
 
   handleCachedData(cachedData: CardGenericData[]) {
@@ -90,6 +84,8 @@ export class CardDisplayPageComponent implements OnInit {
     this.pageData.totalData = this.cache.totalData;
     this.pageData.belowTitle = this.cache.belowTitle;
     this.pageData.aboveTitle = this.cache.aboveTitle;
+
+    this.loadingSpinnerService.hideSpinner();
   }
 
   saveDataToCache(limit: number, offset: number, data: CardDisplayPageGenericData) {
@@ -100,6 +96,15 @@ export class CardDisplayPageComponent implements OnInit {
 
     this.cacheService.cache(this.cache.cards, limit, offset, data.cards);
   }
+
+  paginatorClicked(page: number) {
+    this.loadData(this.queryParameter, this.paginationLimit, (page - 1) * this.paginationLimit);
+  }
+
+  cacheExists(cachedData: any[]) {
+    return cachedData[0] && !this.isEmptyObject(cachedData[0]);
+  }
+
 
   filterUndefinedData(array: any[]): any[] {
     return array.filter(val => !this.isEmptyObject(val));

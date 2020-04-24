@@ -1,17 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoadingSpinnerService {
 
-  public spinerVisibility = false;
+  private spinnerVisibilitySubject = new BehaviorSubject(false);
+  spinnerVisibility$ = this.spinnerVisibilitySubject.asObservable();
 
   showSpinner() {
-    this.spinerVisibility = true;
+    this.spinnerVisibilitySubject.next(true);
   }
 
   hideSpinner() {
-    this.spinerVisibility = false;
+    this.spinnerVisibilitySubject.next(false);
   }
 }
