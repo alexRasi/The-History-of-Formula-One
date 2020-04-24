@@ -7,8 +7,8 @@
       <h5 class="card-title">{{label}}</h5>
     </div>
     <div class="col-12 card-row card-content">
-     <span class="description" *ngIf="isUrl(description)"><a [href]="description">{{description}}</a></span>
-     <span class="description" *ngIf="!isUrl(description)" >{{description}}</span>
+     <span class="description" *ngIf="isUrl()"><a [href]="description">{{description}}</a></span>
+     <span class="description" *ngIf="!isUrl()" >{{description}}</span>
     </div>
     <div class="col-12 card-row">
       <a [routerLink]="moreInfoLink" class="card-more-info">More Info</a>
