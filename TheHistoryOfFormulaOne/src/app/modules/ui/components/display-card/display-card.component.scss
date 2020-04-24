@@ -44,3 +44,11 @@
   line-height: 14px;
   color: $letter-color;
 }
+
+.description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  overflow: hidden
+}
