@@ -98,7 +98,16 @@ export class CardDisplayPageComponent implements OnInit {
   }
 
   paginatorClicked(page: number) {
+    this.scrollOnTop();
     this.loadData(this.queryParameter, this.paginationLimit, (page - 1) * this.paginationLimit);
+  }
+
+  scrollOnTop() {
+    document.body.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   cacheExists(cachedData: any[]) {
