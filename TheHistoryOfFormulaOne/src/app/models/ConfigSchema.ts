@@ -5,5 +5,6 @@ export interface NavItem {
 }
 
 export interface ConfigSchema {
-  navItems: NavItem[]
+  navItems: NavItem[],
+  paginationSize: number
 }

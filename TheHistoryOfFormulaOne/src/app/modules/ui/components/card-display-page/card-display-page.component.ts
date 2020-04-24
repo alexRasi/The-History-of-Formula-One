@@ -1,3 +1,4 @@
+import { CONFIG } from './../../../../../environments/config';
 import { CacheService } from './../../../cache/cache.service';
 import { CardDisplayPageGenericData } from './../../../../models/CardDisplayPageGenericData';
 import { CardGenericData } from 'src/app/models/CardGenericData';
@@ -12,7 +13,7 @@ import { LoadingSpinnerService } from '../../services/loading-spinner-service/lo
   styleUrls: ['./card-display-page.component.scss']
 })
 export class CardDisplayPageComponent implements OnInit {
-  private dataFetchingService: DataFetchingService<CardGenericData>;
+  public dataFetchingService: DataFetchingService<CardGenericData>;
   serviceToken: string;
 
   pageData: CardDisplayPageGenericData = {} as CardDisplayPageGenericData;
@@ -22,7 +23,7 @@ export class CardDisplayPageComponent implements OnInit {
 
   cache: CardDisplayPageGenericData;
 
-  paginationLimit = 10;
+  paginationLimit = CONFIG.paginationSize;
 
   queryParameter = this.route.snapshot.paramMap.get('id');
 
@@ -30,7 +31,7 @@ export class CardDisplayPageComponent implements OnInit {
     private route: ActivatedRoute,
     injector: Injector,
     private loadingSpinnerService: LoadingSpinnerService,
-    private cacheService: CacheService) {
+    public cacheService: CacheService) {
     // Injecting the data subclass fetching service provided during routing
     this.serviceToken = route.snapshot.data['requiredServiceToken'];
     this.dataFetchingService = injector.get<DataFetchingService<CardGenericData>>(<any>this.serviceToken);
@@ -38,6 +39,7 @@ export class CardDisplayPageComponent implements OnInit {
 
   ngOnInit() {
     this.cache = this.cacheService.getCache(this.serviceToken); // serviceToken = entity name
+    console.log(this.cache);
     if (!this.cache) {
       this.cache = this.cacheService.newCache(this.serviceToken);
       this.cache.cards = [];
@@ -72,6 +74,7 @@ export class CardDisplayPageComponent implements OnInit {
 
   handleUncachedData(parameter: any, limit: any, offset: any) {
     this.dataFetchingService.getTransformedData(parameter, limit, offset).subscribe((pageData: CardDisplayPageGenericData) => {
+      console.log(pageData);
       this.pageData = pageData;
       this.dataSource = pageData.cards
 
@@ -104,5 +107,9 @@ export class CardDisplayPageComponent implements OnInit {
 
   isEmptyObject(obj: any): boolean {
     return Object.keys(obj).length === 0 && obj.constructor === Object;
+  }
+
+  displayPaginator() {
+    return this.totalPages > 1;
   }
 }
