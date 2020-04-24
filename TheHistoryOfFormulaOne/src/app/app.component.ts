@@ -1,4 +1,3 @@
-import { LoadingSpinnerService } from './modules/ui/services/loading-spinner-service/loading-spinner.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,9 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'TheHistoryOfFormulaOne';
+export class AppComponent{
+  showSpinner = false;
 
-  constructor(public loadingSpinnerService: LoadingSpinnerService) {}
+  constructor(){}
 }
 
