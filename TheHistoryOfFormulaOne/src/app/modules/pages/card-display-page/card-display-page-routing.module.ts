@@ -3,7 +3,7 @@ import { CardDisplayPageComponent } from './../../ui/components/card-display-pag
 import { NgModule, InjectionToken } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
+const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsStandingsService");
 
 const routes: Routes = [
   {

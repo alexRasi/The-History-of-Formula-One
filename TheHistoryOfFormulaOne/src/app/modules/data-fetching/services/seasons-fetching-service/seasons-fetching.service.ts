@@ -33,7 +33,7 @@ export class SeasonsFetchingService extends DataFetchingService<CardGenericData>
         cardGenericData.push({
           label: season.season,
           description: season.url,
-          moreInfoLink: 'seasons/season-standings/' + season.season
+          moreInfoLink: 'season-standings/' + season.season
         })
       }
     )

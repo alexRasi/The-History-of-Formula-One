@@ -16,6 +16,7 @@ export class DisplayCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.moreInfoLink);
   }
 
   isUrl(str: string) {
