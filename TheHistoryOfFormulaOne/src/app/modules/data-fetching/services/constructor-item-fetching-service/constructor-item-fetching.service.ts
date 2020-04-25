@@ -29,9 +29,10 @@ export class ConstructorItemFetchingService extends DataFetchingService<ItemGene
 
     const constructor = driverResponse.MRData.ConstructorTable.Constructors[0];
 
-    itemDisplayPageGenericData.title = constructor.name
-    itemDisplayPageGenericData.titleAbove = 'Constructor details'
-    itemDisplayPageGenericData.description = constructor.url
+    itemDisplayPageGenericData.title = constructor.name;
+    itemDisplayPageGenericData.titleAbove = 'Constructor details';
+    itemDisplayPageGenericData.description = constructor.url;
+    itemDisplayPageGenericData.titleBelow = constructor.nationality;
 
     itemDisplayPageGenericData.details.push({ attribute: 'Nationality', value: constructor.nationality });
 

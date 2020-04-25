@@ -30,8 +30,9 @@ export class DriverItemFetchingService extends DataFetchingService<ItemGenericDe
     const driver = driverResponse.MRData.DriverTable.Drivers[0];
 
     itemDisplayPageGenericData.title = driver.familyName + ' ' + driver.givenName;
-    itemDisplayPageGenericData.titleAbove = 'Driver details'
-    itemDisplayPageGenericData.description = driver.url
+    itemDisplayPageGenericData.titleAbove = 'Driver details';
+    itemDisplayPageGenericData.description = driver.url;
+    itemDisplayPageGenericData.titleBelow = driver.nationality;
 
     itemDisplayPageGenericData.details.push({attribute: 'Date of Birth', value: driver.dateOfBirth});
     itemDisplayPageGenericData.details.push({attribute: 'Nationality', value: driver.nationality});

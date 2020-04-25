@@ -43,11 +43,12 @@
   overflow: hidden
 }
 
-
-
 .item-image {
   background-color: black;
   height: 35vh;
+  font-size: 100px;
+  color: white;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {

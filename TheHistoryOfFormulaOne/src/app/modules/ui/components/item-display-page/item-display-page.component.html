@@ -1,4 +1,4 @@
-<app-title-component [mainTitle]="pageData?.title" [titleAbove]="pageData?.titleAbove"></app-title-component>
+<app-title-component [mainTitle]="pageData?.title" [titleAbove]="pageData?.titleAbove" [titleBelow]="pageData?.titleBelow"></app-title-component>
 <div class="container item-display d-flex">
   <div class="col-sm-12 col-md-6 item-details">
     <h3 class="details-title">Details:</h3>
@@ -12,5 +12,9 @@
       <span class="description" *ngIf="!isUrl()" >{{pageData?.description}}</span>
     </p>
   </div>
-  <div class="col-sm-12 col-md-6 item-image"></div>
+  <div class="col-sm-12 col-md-6 item-image d-flex justify-content-center align-items-center">
+    <div>
+      <i class="image fa fa-picture-o" aria-hidden="true"></i>
+    </div>
+  </div>
 </div>
