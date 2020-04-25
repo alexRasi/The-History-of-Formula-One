@@ -2,4 +2,10 @@
 
 :host {
   font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  background-color: red;
+}
+
+.content {
+  min-height: 85vh;
 }
