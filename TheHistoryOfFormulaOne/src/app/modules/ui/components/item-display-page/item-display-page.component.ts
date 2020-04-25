@@ -22,6 +22,8 @@ export class ItemDisplayPageComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.scrollOnTop();
+
     this.loadingSpinnerService.showSpinner();
     this.dataFetchingService.getTransformedData(this.route.snapshot.paramMap.get('id')).subscribe((data: ItemDisplayPageGenericData) => {
       this.pageData = data;
@@ -40,4 +42,11 @@ export class ItemDisplayPageComponent implements OnInit {
     }
   }
 
+  scrollOnTop() {
+    document.body.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }

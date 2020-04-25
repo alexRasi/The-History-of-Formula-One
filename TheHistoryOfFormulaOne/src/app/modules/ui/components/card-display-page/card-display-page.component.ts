@@ -38,6 +38,8 @@ export class CardDisplayPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.scrollOnTop();
+
     this.cache = this.cacheService.getCache(this.serviceToken); // serviceToken = entity name
 
     if (!this.cache) {
