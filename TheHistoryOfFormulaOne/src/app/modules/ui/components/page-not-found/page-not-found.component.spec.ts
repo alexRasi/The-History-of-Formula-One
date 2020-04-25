@@ -1,3 +1,5 @@
+import { RouterTestingModule } from '@angular/router/testing';
+import { TitleComponentComponent } from './../title-component/title-component.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageNotFoundComponent } from './page-not-found.component';
@@ -8,7 +10,8 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ PageNotFoundComponent, TitleComponentComponent ]
     })
     .compileComponents();
   }));
