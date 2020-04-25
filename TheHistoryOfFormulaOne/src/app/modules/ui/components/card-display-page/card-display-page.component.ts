@@ -70,7 +70,6 @@ export class CardDisplayPageComponent implements OnInit {
 
   handleUncachedData(parameter: any, limit: any, offset: any) {
     this.dataFetchingService.getTransformedData(parameter, limit, offset).subscribe((pageData: CardDisplayPageGenericData) => {
-      console.log(pageData);
       this.pageData = pageData;
       this.dataSource = pageData.cards
 

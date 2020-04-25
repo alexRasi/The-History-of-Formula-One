@@ -31,3 +31,21 @@ $title-y-padding: 3%;
   background-color: gray;
   height: 1px;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .small-title {
+    font-size: 15px;
+  }
+
+  .small-hr {
+    display: none;
+  }
+
+  .title-container {
+    height: 10vh;
+  }
+}
