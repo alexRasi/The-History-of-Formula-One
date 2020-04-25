@@ -14,5 +14,6 @@ export const CONFIG: ConfigSchema = {
       title: 'Constructors',
       link: 'constructors/'
     }
-  ]
+  ],
+  paginationSize: 10
 }

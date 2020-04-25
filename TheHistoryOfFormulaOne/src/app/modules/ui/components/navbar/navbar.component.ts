@@ -12,6 +12,8 @@ export class NavbarComponent implements OnInit {
 
   activeNavItemID: number = 2;
 
+  isCollapsed = true;
+
   constructor() { }
 
   ngOnInit() {
@@ -20,5 +22,4 @@ export class NavbarComponent implements OnInit {
   isNavItemActive(itemID: number) {
     return itemID === this.activeNavItemID;
   }
-
 }

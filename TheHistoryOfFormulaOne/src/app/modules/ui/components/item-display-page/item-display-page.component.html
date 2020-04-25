@@ -2,7 +2,7 @@
 <div class="container item-display d-flex">
   <div class="col-sm-12 col-md-6 item-details">
     <h3 class="details-title">Details:</h3>
-    <div class="d-flex" *ngFor="let detail of pageData?.details">
+    <div class="d-flex detail" *ngFor="let detail of pageData?.details">
       <div class="details-attribute">{{detail?.attribute}}</div>
       :&nbsp;
       <div class="details-value">{{detail?.value}}</div>

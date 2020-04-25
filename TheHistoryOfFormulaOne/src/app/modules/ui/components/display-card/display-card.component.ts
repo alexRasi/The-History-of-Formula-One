@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './display-card.component.html',
   styleUrls: ['./display-card.component.scss']
 })
-export class DisplayCardComponent implements OnInit {
+export class DisplayCardComponent {
 
   @Input() imageLink: string;
   @Input() altImageTitle: string;
@@ -13,9 +13,14 @@ export class DisplayCardComponent implements OnInit {
   @Input() description: string;
   @Input() moreInfoLink: string;
 
-  constructor() { }
+  isUrl(str: string) {
+    var expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+    var regex = new RegExp(expression);
 
-  ngOnInit() {
+    if(this.description) {
+      return this.description.match(regex);
+    } else {
+      return false;
+    }
   }
-
 }

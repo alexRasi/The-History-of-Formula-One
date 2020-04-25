@@ -1,3 +1,4 @@
+import { CONFIG } from './../../../../../environments/config';
 import { CacheService } from './../../../cache/cache.service';
 import { CardDisplayPageGenericData } from './../../../../models/CardDisplayPageGenericData';
 import { CardGenericData } from 'src/app/models/CardGenericData';
@@ -12,7 +13,7 @@ import { LoadingSpinnerService } from '../../services/loading-spinner-service/lo
   styleUrls: ['./card-display-page.component.scss']
 })
 export class CardDisplayPageComponent implements OnInit {
-  private dataFetchingService: DataFetchingService<CardGenericData>;
+  public dataFetchingService: DataFetchingService<CardGenericData>;
   serviceToken: string;
 
   pageData: CardDisplayPageGenericData = {} as CardDisplayPageGenericData;
@@ -22,7 +23,7 @@ export class CardDisplayPageComponent implements OnInit {
 
   cache: CardDisplayPageGenericData;
 
-  paginationLimit = 10;
+  paginationLimit = CONFIG.paginationSize;
 
   queryParameter = this.route.snapshot.paramMap.get('id');
 
@@ -30,7 +31,7 @@ export class CardDisplayPageComponent implements OnInit {
     private route: ActivatedRoute,
     injector: Injector,
     private loadingSpinnerService: LoadingSpinnerService,
-    private cacheService: CacheService) {
+    public cacheService: CacheService) {
     // Injecting the data subclass fetching service provided during routing
     this.serviceToken = route.snapshot.data['requiredServiceToken'];
     this.dataFetchingService = injector.get<DataFetchingService<CardGenericData>>(<any>this.serviceToken);
@@ -38,12 +39,12 @@ export class CardDisplayPageComponent implements OnInit {
 
   ngOnInit() {
     this.cache = this.cacheService.getCache(this.serviceToken); // serviceToken = entity name
+
     if (!this.cache) {
       this.cache = this.cacheService.newCache(this.serviceToken);
       this.cache.cards = [];
     }
 
-    this.loadDataFromCache();
     this.loadData(this.queryParameter, this.paginationLimit, 0);
   }
 
@@ -52,16 +53,11 @@ export class CardDisplayPageComponent implements OnInit {
 
     let cachedData = this.cacheService.getFromCache(this.cache.cards, limit, offset);
 
-    if (cachedData[0] && !this.isEmptyObject(cachedData[0])) {
+    if (this.cacheExists(cachedData)) {
       this.handleCachedData(cachedData);
-      this.loadingSpinnerService.hideSpinner();
     } else {
       this.handleUncachedData(parameter, limit, offset);
     }
-  }
-
-  paginatorClicked(page: number) {
-    this.loadData(this.queryParameter, this.paginationLimit, (page - 1) * this.paginationLimit);
   }
 
   handleCachedData(cachedData: CardGenericData[]) {
@@ -72,6 +68,7 @@ export class CardDisplayPageComponent implements OnInit {
 
   handleUncachedData(parameter: any, limit: any, offset: any) {
     this.dataFetchingService.getTransformedData(parameter, limit, offset).subscribe((pageData: CardDisplayPageGenericData) => {
+      console.log(pageData);
       this.pageData = pageData;
       this.dataSource = pageData.cards
 
@@ -87,6 +84,8 @@ export class CardDisplayPageComponent implements OnInit {
     this.pageData.totalData = this.cache.totalData;
     this.pageData.belowTitle = this.cache.belowTitle;
     this.pageData.aboveTitle = this.cache.aboveTitle;
+
+    this.loadingSpinnerService.hideSpinner();
   }
 
   saveDataToCache(limit: number, offset: number, data: CardDisplayPageGenericData) {
@@ -98,11 +97,33 @@ export class CardDisplayPageComponent implements OnInit {
     this.cacheService.cache(this.cache.cards, limit, offset, data.cards);
   }
 
+  paginatorClicked(page: number) {
+    this.scrollOnTop();
+    this.loadData(this.queryParameter, this.paginationLimit, (page - 1) * this.paginationLimit);
+  }
+
+  scrollOnTop() {
+    document.body.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  cacheExists(cachedData: any[]) {
+    return cachedData[0] && !this.isEmptyObject(cachedData[0]);
+  }
+
+
   filterUndefinedData(array: any[]): any[] {
     return array.filter(val => !this.isEmptyObject(val));
   }
 
   isEmptyObject(obj: any): boolean {
     return Object.keys(obj).length === 0 && obj.constructor === Object;
+  }
+
+  displayPaginator() {
+    return this.totalPages > 1;
   }
 }
