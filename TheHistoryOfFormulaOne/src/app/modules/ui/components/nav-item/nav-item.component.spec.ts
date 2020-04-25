@@ -44,7 +44,7 @@ describe('NavItemComponent', () => {
     expect(content.innerHTML).toContain('Test title');
   });
 
-  it('should have a link', () => {
+  it('anchor should have an href attribute', () => {
     const content = fixture.debugElement.nativeElement.querySelector('a');
     expect(content.href).toBeTruthy();
   });
