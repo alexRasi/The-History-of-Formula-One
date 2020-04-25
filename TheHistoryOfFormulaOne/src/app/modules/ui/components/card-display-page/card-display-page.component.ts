@@ -3,7 +3,7 @@ import { CacheService } from './../../../cache/cache.service';
 import { CardDisplayPageGenericData } from './../../../../models/CardDisplayPageGenericData';
 import { CardGenericData } from 'src/app/models/CardGenericData';
 import { Component, OnInit, Injector } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataFetchingService } from 'src/app/modules/data-fetching/services/data-fetching-base-service/data-fetching.service';
 import { LoadingSpinnerService } from '../../services/loading-spinner-service/loading-spinner.service';
 
@@ -28,6 +28,7 @@ export class CardDisplayPageComponent implements OnInit {
   queryParameter = this.route.snapshot.paramMap.get('id');
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     injector: Injector,
     private loadingSpinnerService: LoadingSpinnerService,
@@ -40,7 +41,8 @@ export class CardDisplayPageComponent implements OnInit {
   ngOnInit() {
     this.scrollOnTop();
 
-    this.cache = this.cacheService.getCache(this.serviceToken); // serviceToken = entity name
+    const cacheName = this.queryParameter? (this.serviceToken + this.queryParameter) : this.serviceToken
+    this.cache = this.cacheService.getCache(cacheName); // serviceToken = entity name
 
     if (!this.cache) {
       this.cache = this.cacheService.newCache(this.serviceToken);
@@ -70,7 +72,6 @@ export class CardDisplayPageComponent implements OnInit {
 
   handleUncachedData(parameter: any, limit: any, offset: any) {
     this.dataFetchingService.getTransformedData(parameter, limit, offset).subscribe((pageData: CardDisplayPageGenericData) => {
-      console.log(pageData);
       this.pageData = pageData;
       this.dataSource = pageData.cards
 
@@ -78,6 +79,9 @@ export class CardDisplayPageComponent implements OnInit {
 
       this.totalPages = Math.ceil(pageData.totalData / this.paginationLimit);
       this.loadingSpinnerService.hideSpinner();
+    }, (error) => {
+      this.navigateOnPageNotFound();
+      this.loadingSpinnerService.hideSpinner()
     });
   }
 
@@ -112,10 +116,13 @@ export class CardDisplayPageComponent implements OnInit {
     });
   }
 
+  navigateOnPageNotFound() {
+    this.router.navigateByUrl('/page-not-found');
+  }
+
   cacheExists(cachedData: any[]) {
     return cachedData[0] && !this.isEmptyObject(cachedData[0]);
   }
-
 
   filterUndefinedData(array: any[]): any[] {
     return array.filter(val => !this.isEmptyObject(val));

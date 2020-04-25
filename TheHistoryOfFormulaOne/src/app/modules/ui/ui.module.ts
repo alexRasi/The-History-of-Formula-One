@@ -13,6 +13,7 @@ import { SpinLoaderComponent } from './components/spin-loader/spin-loader.compon
 import { ItemDisplayPageComponent } from './components/item-display-page/item-display-page.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SpinLoaderComponent,
     ItemDisplayPageComponent,
     PaginatorComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomePageComponent,
     SpinLoaderComponent,
     ItemDisplayPageComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ]
 })
 export class UiModule { }
