@@ -15,5 +15,5 @@ export const CONFIG: ConfigSchema = {
       link: 'constructors/'
     }
   ],
-  paginationSize: 10
+  paginationSize: 12
 }

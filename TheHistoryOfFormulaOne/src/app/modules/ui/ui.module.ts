@@ -12,6 +12,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { SpinLoaderComponent } from './components/spin-loader/spin-loader.component';
 import { ItemDisplayPageComponent } from './components/item-display-page/item-display-page.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     HomePageComponent,
     SpinLoaderComponent,
     ItemDisplayPageComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     CardDisplayPageComponent,
     HomePageComponent,
     SpinLoaderComponent,
-    ItemDisplayPageComponent
+    ItemDisplayPageComponent,
+    FooterComponent
   ]
 })
 export class UiModule { }
