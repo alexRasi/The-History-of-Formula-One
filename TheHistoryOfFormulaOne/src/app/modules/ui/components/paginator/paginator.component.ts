@@ -1,23 +1,17 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss']
 })
-export class PaginatorComponent implements OnInit {
+export class PaginatorComponent {
 
   @Input() totalPages: number;
 
   @Output() pageClickedEvent = new EventEmitter<number>();
 
   currentPage = 1;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   next() {
     if (this.currentPage < this.totalPages) {

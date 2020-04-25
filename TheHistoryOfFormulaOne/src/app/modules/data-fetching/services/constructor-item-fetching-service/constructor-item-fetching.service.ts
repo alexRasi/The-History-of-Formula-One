@@ -1,14 +1,11 @@
 import { ItemGenericDetail } from './../../../../models/ItemGenericDetail';
 import { ConstructorItemResponseDTO } from './../../../../models/dtos/ConstructorItemResponseDTO';
-import { DriverItemResponseDTO } from './../../../../models/dtos/DriverItemResponseDTO';
 import { ItemDisplayPageGenericData } from 'src/app/models/ItemDisplayPageGenericData';
 import { Injectable } from '@angular/core';
 import { DataFetchingService } from '../data-fetching-base-service/data-fetching.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DriversResponseDTO } from 'src/app/models/dtos/DriversResponseDTO';
-import { CardGenericData } from 'src/app/models/CardGenericData';
 
 @Injectable()
 export class ConstructorItemFetchingService extends DataFetchingService<ItemGenericDetail> {
@@ -36,7 +33,7 @@ export class ConstructorItemFetchingService extends DataFetchingService<ItemGene
     itemDisplayPageGenericData.titleAbove = 'Constructor details'
     itemDisplayPageGenericData.description = constructor.url
 
-    itemDisplayPageGenericData.details.push({attribute: 'Nationality', value: constructor.nationality});
+    itemDisplayPageGenericData.details.push({ attribute: 'Nationality', value: constructor.nationality });
 
     return itemDisplayPageGenericData;
   }
