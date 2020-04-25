@@ -32,7 +32,7 @@ export class SeasonStandingsFetchingService extends DataFetchingService<CardGene
 
         cardGenericData.push({
           label: '#' + driver.position + ' ' + driver.Driver.givenName + ' ' + driver.Driver.familyName,
-          description: driver.Driver.url,
+          description: 'Points: ' + driver.points,
           moreInfoLink: '/drivers/' + driver.Driver.driverId
         })
       }
