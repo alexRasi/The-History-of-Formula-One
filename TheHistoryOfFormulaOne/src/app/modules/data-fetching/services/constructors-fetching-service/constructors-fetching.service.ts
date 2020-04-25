@@ -13,8 +13,8 @@ export class ConstructorsFetchingService extends DataFetchingService<CardGeneric
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(parameter: any, limit: number, offset: number): Observable<any> {
-    return this.http.get(`${this.url}?limit=${limit}&offset=${offset}`);
+  getData(parameter: any, limit: number, offset: number): Observable<ConstructorsResponseDTO> {
+    return this.http.get<ConstructorsResponseDTO>(`${this.url}?limit=${limit}&offset=${offset}`);
   }
 
   getTransformedData(parameter: any, limit: number, offset: number): Observable<CardDisplayPageGenericData> {
