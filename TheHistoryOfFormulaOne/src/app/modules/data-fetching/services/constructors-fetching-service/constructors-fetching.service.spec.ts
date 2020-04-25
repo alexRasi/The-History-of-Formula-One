@@ -18,7 +18,7 @@ describe('ConstructorsFetchingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch a ConstructorItemResponseDTO array and return it transformed to ItemDisplayPageGenericData', async () => {
+  it('should fetch a ConstructorsResponseDTO array and return it transformed to CardDisplayPageGenericData', async () => {
     const service: ConstructorsFetchingService = TestBed.get(ConstructorsFetchingService)
     spyOn(service,'getData').and.returnValue(of(ConstructorsResponseDTOMock));
 
