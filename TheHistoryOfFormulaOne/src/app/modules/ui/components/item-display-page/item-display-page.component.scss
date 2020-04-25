@@ -1,5 +1,9 @@
 @import "~src/styles.scss";
 
+:host {
+  min-height: 85vh;
+}
+
 .item-display {
   width: 100vw;
   margin-top: 3%;
@@ -27,9 +31,18 @@
   color: $letter-color;
 }
 
-.description {
+.description-container {
   font-size: 14px;
 }
+
+.description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  overflow: hidden
+}
+
 
 
 .item-image {

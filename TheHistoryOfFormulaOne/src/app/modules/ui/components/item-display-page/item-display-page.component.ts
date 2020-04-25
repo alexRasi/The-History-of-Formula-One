@@ -29,4 +29,15 @@ export class ItemDisplayPageComponent implements OnInit {
     });
   }
 
+  isUrl() {
+    var expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+    var regex = new RegExp(expression);
+
+    if(this.pageData && this.pageData.description) {
+      return this.pageData.description.match(regex);
+    } else {
+      return false;
+    }
+  }
+
 }

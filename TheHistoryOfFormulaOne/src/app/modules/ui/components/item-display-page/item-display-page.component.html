@@ -7,8 +7,9 @@
       :&nbsp;
       <div class="details-value">{{detail?.value}}</div>
     </div>
-    <p class="mt-4 description">
-      {{pageData?.description}}
+    <p class="mt-4 description-container">
+      <span class="description" *ngIf="isUrl()"><a [href]="pageData?.description">{{pageData?.description}}</a></span>
+      <span class="description" *ngIf="!isUrl()" >{{pageData?.description}}</span>
     </p>
   </div>
   <div class="col-sm-12 col-md-6 item-image"></div>
