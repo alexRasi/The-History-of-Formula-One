@@ -13,11 +13,11 @@ export class DriverItemFetchingService extends DataFetchingService<ItemGenericDe
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(driverId: string): Observable<any> {
-    return this.http.get(this.url + '/' + driverId + '.json');
+  getData(driverId: string): Observable<DriverItemResponseDTO> {
+    return this.http.get<DriverItemResponseDTO>(this.url + '/' + driverId + '.json');
   }
 
-  getTransformedData(driverId: string): Observable<any> {
+  getTransformedData(driverId: string): Observable<ItemDisplayPageGenericData> {
     return this.getData(driverId).pipe(map(
       data => this.mapToItemDisplayPageGenericData(data)
     ))

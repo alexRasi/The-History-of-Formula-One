@@ -12,11 +12,11 @@ export class SeasonStandingsFetchingService extends DataFetchingService<CardGene
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(year: number, limit: number, offset: number): Observable<any> {
-    return this.http.get(`http://ergast.com/api/f1/${year.toString()}/driverStandings.json?limit=${limit}&offset=${offset}`);
+  getData(year: number, limit: number, offset: number): Observable<SeasonStandingsResponseDTO> {
+    return this.http.get<SeasonStandingsResponseDTO>(`http://ergast.com/api/f1/${year.toString()}/driverStandings.json?limit=${limit}&offset=${offset}`);
   }
 
-  getTransformedData(parameter: any, limit: number, offset: number): Observable<any> {
+  getTransformedData(parameter: any, limit: number, offset: number): Observable<CardDisplayPageGenericData> {
     return this.getData(parameter, limit, offset).pipe(map(
       data => this.mapToCardGenericData(data)
     ))

@@ -13,11 +13,11 @@ export class ConstructorItemFetchingService extends DataFetchingService<ItemGene
 
   constructor(private http: HttpClient) { super(); }
 
-  getData(constructorId: string): Observable<any> {
-    return this.http.get(this.url + '/' + constructorId + '.json');
+  getData(constructorId: string): Observable<ConstructorItemResponseDTO> {
+    return this.http.get<ConstructorItemResponseDTO>(this.url + '/' + constructorId + '.json');
   }
 
-  getTransformedData(constructorId: string): Observable<any> {
+  getTransformedData(constructorId: string): Observable<ItemDisplayPageGenericData> {
     return this.getData(constructorId).pipe(map(
       data => this.mapToItemDisplayPageGenericData(data)
     ))

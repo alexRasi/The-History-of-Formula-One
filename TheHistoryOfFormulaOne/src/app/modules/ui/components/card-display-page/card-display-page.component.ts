@@ -70,7 +70,7 @@ export class CardDisplayPageComponent implements OnInit {
     this.totalPages = Math.ceil(this.pageData.totalData / this.paginationLimit);
   }
 
-  handleUncachedData(parameter: any, limit: any, offset: any) {
+  handleUncachedData(parameter: any, limit: number, offset: number) {
     this.dataFetchingService.getTransformedData(parameter, limit, offset).subscribe((pageData: CardDisplayPageGenericData) => {
       this.pageData = pageData;
       this.dataSource = pageData.cards
