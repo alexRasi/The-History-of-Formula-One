@@ -7,8 +7,6 @@ import { map } from 'rxjs/operators';
 import { CardGenericData } from 'src/app/models/CardGenericData';
 import { CardDisplayPageGenericData } from 'src/app/models/CardDisplayPageGenericData';
 
-
-
 @Injectable()
 export class ConstructorsFetchingService extends DataFetchingService<CardGenericData> {
   url = 'http://ergast.com/api/f1/constructors.json';

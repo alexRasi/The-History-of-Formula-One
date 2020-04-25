@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { DataFetchingService } from './data-fetching.service';
 import { SeasonsResponseDTO } from 'src/app/models/dtos/SeasonsReponseDTO';
 import { Observable, of } from 'rxjs';
@@ -24,7 +23,6 @@ class TestDataFetchingService extends DataFetchingService<CardGenericData> {
     return of(undefined);
   }
 }
-
 
 describe('DataFetchingService', () => {
   beforeEach(() => TestBed.configureTestingModule({
