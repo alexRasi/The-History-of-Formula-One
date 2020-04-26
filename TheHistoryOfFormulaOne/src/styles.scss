@@ -1,0 +1,28 @@
+$page-side-padding: 15vw;
+
+$light-gray-color: rgba(187, 187, 187, 0.5);
+
+$border-color: $light-gray-color;
+
+$small-title-font-size: 20px;
+$big-title-font-size: 70px;
+
+$letter-color: #10172C;
+
+hr {
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
+
+html, body {
+  overflow-x: hidden!important;
+  width: 100vw;
+  height: 100vh;
+}
+
+a {
+  color: gray;
+}

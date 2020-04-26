@@ -1,0 +1,45 @@
+@import "~src/styles.scss";
+
+.nav-padding {
+  padding-left: $page-side-padding;
+}
+
+.navbar {
+  height: 12vh;
+  border-bottom: 1px solid $border-color;
+  margin: 1%;
+}
+
+.navbar-collapse {
+  background-color: white;
+  z-index: 1;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  li {
+    font-size: 24px!important;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .navbar {
+    border-bottom: 1px solid $border-color;
+    margin: 1%;
+  }
+
+  .navbar-collapse {
+    border: 1px solid $border-color;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+}
+
+.li {
+  position: relative;
+}

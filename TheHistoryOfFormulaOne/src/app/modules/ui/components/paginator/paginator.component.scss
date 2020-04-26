@@ -1,0 +1,17 @@
+@import "~src/styles.scss";
+
+.page-link {
+  color: $letter-color!important;
+  cursor: pointer;
+}
+
+.page-input {
+  width: 55px !important;
+  text-align: right;
+  cursor: text;
+}
+
+.total-pages {
+  border-left: none;
+  word-spacing: 5px;
+}

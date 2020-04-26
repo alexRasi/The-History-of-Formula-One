@@ -1,0 +1,16 @@
+<div *ngIf="pageData">
+  <app-title-component [mainTitle]="pageData.title" [titleAbove]="pageData.aboveTitle" [titleBelow]="pageData.belowTitle" ></app-title-component>
+  <div class="container display-card-grid d-flex">
+    <app-display-card *ngFor="let card of dataSource"
+    [altImageTitle]="card.altImageTitle"
+    [description]="card.description"
+    [label]="card.label"
+    [moreInfoLink]="card.moreInfoLink"
+    class="col-xs-12 col-sm-12 col-md-6 col-lg-4 pb-5">
+  </app-display-card>
+  <div class="paginator w-100">
+    <app-paginator *ngIf="displayPaginator()" [totalPages]="totalPages" (pageClickedEvent)="paginatorClicked($event)"></app-paginator>
+  </div>
+  </div>
+</div>
+

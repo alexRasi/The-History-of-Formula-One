@@ -1,0 +1,51 @@
+@import "~src/styles.scss";
+
+$title-y-padding: 3%;
+
+.title-container {
+  height: 30vh;
+  padding-top: $title-y-padding;
+}
+
+.title {
+  text-align: center;
+  height: 10%;
+}
+
+.small-title {
+  font-size: $small-title-font-size;
+  font-size: 18px;
+  font-weight: lighter;
+  letter-spacing: 0px;
+  color: gray;
+  opacity: 1;
+}
+
+.big-title {
+  font-size: $big-title-font-size;
+  font-weight: bold;
+}
+
+.small-hr {
+  width: 11%;
+  background-color: gray;
+  height: 1px;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .small-title {
+    font-size: 15px;
+  }
+
+  .small-hr {
+    display: none;
+  }
+
+  .title-container {
+    height: 10vh;
+  }
+}

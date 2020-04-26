@@ -1,0 +1,59 @@
+@import "~src/styles.scss";
+
+.display-card {
+  height: 49vh;
+  width: 23vw;
+  min-width: 300px;
+}
+
+.card-image {
+  height: 65%;
+  width:100;
+  font-size: 70px;
+  text-align: center;
+  color: $light-gray-color;
+  border: 1px solid $light-gray-color;
+}
+
+
+.card-info {
+  height: 35%;
+  width: 100%;
+  background-color: rgba(187, 187, 187, 0.245);
+}
+
+.card-row {
+  height: 30%;
+  padding-top: 4%;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  color: $letter-color;
+}
+
+.card-content {
+  text-align: left;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0px;
+  color: $letter-color;
+}
+
+.card-more-info {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  color: $letter-color;
+}
+
+.description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  overflow: hidden
+}
