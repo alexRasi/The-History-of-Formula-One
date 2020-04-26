@@ -16,7 +16,7 @@ describe('DriversFetchingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch a DriverItemResponseDTO object and return it transformed to ItemDisplayPageGenericData', async () => {
+  it('should fetch a DriversResponseDTO object and return it transformed to CardDisplayPageGenericData', async () => {
     const service: DriversFetchingService = TestBed.get(DriversFetchingService)
     spyOn(service, 'getData').and.returnValue(of(DriversResponseDTOMock));
 
