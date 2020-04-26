@@ -17,7 +17,7 @@ describe('ConstructorItemFetchingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch a ConstructorItemResponseDTO array and return it transformed to ItemDisplayPageGenericData', async () => {
+  it('should fetch a ConstructorItemResponseDTO object and return it transformed to ItemDisplayPageGenericData', async () => {
     const service: ConstructorItemFetchingService = TestBed.get(ConstructorItemFetchingService)
     spyOn(service,'getData').and.returnValue(of(ConstructorItemResponseDTO_MOCK));
 
