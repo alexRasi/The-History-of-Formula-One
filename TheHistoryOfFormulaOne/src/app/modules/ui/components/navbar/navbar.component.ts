@@ -10,7 +10,7 @@ import { NavItem } from 'src/app/models/ConfigSchema';
 export class NavbarComponent {
   navItems: NavItem[] = CONFIG.navItems;
 
-  activeNavItemID: number = 2;
+  activeNavItemID: number;
 
   isCollapsed = true;
 
