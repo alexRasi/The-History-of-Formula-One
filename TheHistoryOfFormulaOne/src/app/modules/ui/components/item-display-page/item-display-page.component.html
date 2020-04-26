@@ -1,157 +1,164 @@
-<app-title-component [mainTitle]="pageData?.title" [titleAbove]="pageData?.titleAbove" [titleBelow]="pageData?.titleBelow"></app-title-component>
-<div class="container item-display d-flex">
-  <div class="col-sm-12 col-md-6 item-details">
-    <h3 class="details-title">Details:</h3>
-    <div class="d-flex detail" *ngFor="let detail of pageData?.details">
-      <div class="details-attribute">{{detail?.attribute}}</div>
-      :&nbsp;
-      <div class="details-value">{{detail?.value}}</div>
+<div *ngIf="pageData">
+  <app-title-component [mainTitle]="pageData?.title" [titleAbove]="pageData?.titleAbove"
+    [titleBelow]="pageData?.titleBelow"></app-title-component>
+  <div class="container item-display d-flex">
+    <div class="col-sm-12 col-md-6 item-details">
+      <h3 class="details-title">Details:</h3>
+      <div class="d-flex detail" *ngFor="let detail of pageData?.details">
+        <div class="details-attribute">{{detail?.attribute}}</div>
+        :&nbsp;
+        <div class="details-value">{{detail?.value}}</div>
+      </div>
+      <p class="mt-4 description-container">
+        <span class="description" *ngIf="isUrl()"><a [href]="pageData?.description">{{pageData?.description}}</a></span>
+        <span class="description" *ngIf="!isUrl()">{{pageData?.description}}</span>
+      </p>
     </div>
-    <p class="mt-4 description-container">
-      <span class="description" *ngIf="isUrl()"><a [href]="pageData?.description">{{pageData?.description}}</a></span>
-      <span class="description" *ngIf="!isUrl()" >{{pageData?.description}}</span>
-    </p>
-  </div>
-  <div class="col-sm-12 col-md-6 item-image d-flex justify-content-center align-items-center">
+    <div class="col-sm-12 col-md-6 item-image d-flex justify-content-center align-items-center">
+      <div>
+        <i class="image fa fa-picture-o" aria-hidden="true"></i>
+      </div>
+    </div>
     <div>
-      <i class="image fa fa-picture-o" aria-hidden="true"></i>
-    </div>
-  </div>
-  <div>
 
 
 
 
 
-
-
-
-<!-- MODAL UI MOCKS NEED REFACTOR -->
-<!-- TODO: Generic form component should be created and given as ng-contend inside the modal -->
-<!-- ################################################################################################# -->
-  <div class="more-info pt-5">
-      <h5><strong>Mocked input form 1</strong></h5>
-      <div class="d-flex">
-        <div class="more-info-box mr-4">
-          Lorem
-        </div>
-        <div class="more-info-box mr-4">
-          Ipsum
-        </div>
-        <div class="more-info-box mr-4">
-          Dolor
-        </div>
-        <div class="more-info-box mr-4" (click)="modalMockVisibility=!modalMockVisibility">
-          ...
+      <!-- MODAL UI MOCKS NEED REFACTOR -->
+      <!-- TODO: Generic form component should be created and given as ng-contend inside the modal -->
+      <!-- ################################################################################################# -->
+      <div class="more-info pt-5">
+        <h5><strong>Mocked input form 1</strong></h5>
+        <div class="d-flex">
+          <div class="more-info-box mr-4">
+            Lorem
+          </div>
+          <div class="more-info-box mr-4">
+            Ipsum
+          </div>
+          <div class="more-info-box mr-4">
+            Dolor
+          </div>
+          <div class="more-info-box mr-4" (click)="modalMockVisibility=!modalMockVisibility">
+            ...
+          </div>
         </div>
       </div>
-    </div>
-    <div class="more-info pt-5 mb-5">
-      <h5><strong>Mocked input form 2</strong></h5>
-      <div class="d-flex">
-        <div class="more-info-box mr-4">
-          Lorem
-        </div>
-        <div class="more-info-box mr-4">
-          Ipsum
-        </div>
-        <div class="more-info-box mr-4">
-          Dolor
-        </div>
-        <div class="more-info-box mr-4" (click)="modalMock2Visibility=!modalMock2Visibility">
-          ...
+      <div class="more-info pt-5 mb-5">
+        <h5><strong>Mocked input form 2</strong></h5>
+        <div class="d-flex">
+          <div class="more-info-box mr-4">
+            Lorem
+          </div>
+          <div class="more-info-box mr-4">
+            Ipsum
+          </div>
+          <div class="more-info-box mr-4">
+            Dolor
+          </div>
+          <div class="more-info-box mr-4" (click)="modalMock2Visibility=!modalMock2Visibility">
+            ...
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <app-modal *ngIf="modalMockVisibility">
+    <div class="item-form pt-5 pl-5 pr-5 pb-2">
+      <div class="item-form-title mt-2 mb-4">
+        <h5><strong>Add Driver</strong></h5>
+      </div>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label class="item-input-label col-12 p-0">Name</label>
+          <input class="item-form-input col-12" placeholder="Name">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+          <label class="item-input-label col-12 p-0">Height</label>
+          <input class="item-form-input" placeholder="Meters">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+          <label class="item-input-label col-12 p-0">Weight</label>
+          <input class="item-form-input" placeholder="Kg">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+          <label class="item-input-label col-12 p-0">Hair Color</label>
+          <input class="item-form-input" placeholder="Hair Color">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+          <label class="item-input-label col-12 p-0">Nationality</label>
+          <select class="form-control item-form-input">
+            <option>Nationality 1</option>
+            <option>Nationality 2</option>
+          </select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+          <label class="item-input-label col-12 p-0">Year of Birth</label>
+          <input class="item-form-input" placeholder="YYYY">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+          <label class="item-input-label col-12 p-0">Gender</label>
+          <select class="form-control item-form-input">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <div class="col-12 mb-3 row d-flex p-0 flex-row-reverse mt-3">
+          <div (click)="modalMockVisibility=!modalMockVisibility"
+            class="item-form-confirm-button d-flex justify-content-center align-items-center">
+            Confirm
+          </div>
+          <div (click)="modalMockVisibility=!modalMockVisibility"
+            class="item-form-cancel-button d-flex justify-content-center align-items-center mr-4">
+            Cancel</div>
+        </div>
+      </div>
+    </div>
+  </app-modal>
+  <app-modal *ngIf="modalMock2Visibility">
+    <div class="item-form pt-5 pl-5 pr-5 pb-2">
+      <div class="item-form-title mt-2 mb-4">
+        <h5><strong>Add Constructor</strong></h5>
+      </div>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label class="item-input-label col-12 p-0">Name</label>
+          <input class="item-form-input col-12" placeholder="Name">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="item-input-label col-12 p-0">Type</label>
+          <select class="form-control item-form-input">
+            <option>Type 1</option>
+            <option>Type 2</option>
+          </select>
+        </div>
+        <div class="col-12 mb-3">
+          <label class="item-input-label col-12 p-0">Year started</label>
+          <select class="form-control item-form-input">
+            <option>1970</option>
+            <option>1971</option>
+          </select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+          <label class="item-input-label col-12 p-0">Founder</label>
+          <input class="item-form-input" placeholder="Full Name">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="item-input-label col-12 p-0">Description</label>
+          <input class="item-form-input textarea" placeholder="Write a description">
+        </div>
+        <div class="col-12 mb-3 row d-flex p-0 flex-row-reverse mt-3">
+          <div (click)="modalMock2Visibility=!modalMock2Visibility"
+            class="item-form-confirm-button d-flex justify-content-center align-items-center">
+            Confirm
+          </div>
+          <div (click)="modalMock2Visibility=!modalMock2Visibility"
+            class="item-form-cancel-button d-flex justify-content-center align-items-center mr-4">
+            Cancel</div>
+        </div>
+      </div>
+    </div>
+  </app-modal>
 </div>
-<app-modal *ngIf="modalMockVisibility">
-  <div class="item-form pt-5 pl-5 pr-5 pb-2">
-    <div class="item-form-title mt-2 mb-4"><h5><strong>Add Driver</strong></h5></div>
-    <div class="row">
-      <div class="col-12 mb-3">
-        <label class="item-input-label col-12 p-0">Name</label>
-        <input class="item-form-input col-12" placeholder="Name">
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
-        <label class="item-input-label col-12 p-0">Height</label>
-        <input class="item-form-input" placeholder="Meters">
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
-        <label class="item-input-label col-12 p-0">Weight</label>
-        <input class="item-form-input" placeholder="Kg">
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
-        <label class="item-input-label col-12 p-0">Hair Color</label>
-        <input class="item-form-input" placeholder="Hair Color">
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
-        <label class="item-input-label col-12 p-0">Nationality</label>
-        <select class="form-control item-form-input">
-          <option>Nationality 1</option>
-          <option>Nationality 2</option>
-        </select>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
-        <label class="item-input-label col-12 p-0">Year of Birth</label>
-        <input class="item-form-input" placeholder="YYYY">
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
-        <label class="item-input-label col-12 p-0">Gender</label>
-        <select class="form-control item-form-input">
-          <option>Male</option>
-          <option>Female</option>
-        </select>
-      </div>
-      <div class="col-12 mb-3 row d-flex p-0 flex-row-reverse mt-3">
-        <div (click)="modalMockVisibility=!modalMockVisibility"class="item-form-confirm-button d-flex justify-content-center align-items-center">
-          Confirm
-        </div>
-        <div (click)="modalMockVisibility=!modalMockVisibility" class="item-form-cancel-button d-flex justify-content-center align-items-center mr-4">
-          Cancel</div>
-      </div>
-    </div>
-  </div>
-</app-modal>
-<app-modal *ngIf="modalMock2Visibility">
-  <div class="item-form pt-5 pl-5 pr-5 pb-2">
-    <div class="item-form-title mt-2 mb-4"><h5><strong>Add Constructor</strong></h5></div>
-    <div class="row">
-      <div class="col-12 mb-3">
-        <label class="item-input-label col-12 p-0">Name</label>
-        <input class="item-form-input col-12" placeholder="Name">
-      </div>
-      <div  class="col-12 mb-3">
-        <label class="item-input-label col-12 p-0">Type</label>
-        <select class="form-control item-form-input">
-          <option>Type 1</option>
-          <option>Type 2</option>
-        </select>
-      </div>
-      <div  class="col-12 mb-3">
-        <label class="item-input-label col-12 p-0">Year started</label>
-        <select class="form-control item-form-input">
-          <option>1970</option>
-          <option>1971</option>
-        </select>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
-        <label class="item-input-label col-12 p-0">Founder</label>
-        <input class="item-form-input" placeholder="Full Name">
-      </div>
-      <div  class="col-12 mb-3">
-        <label class="item-input-label col-12 p-0">Description</label>
-        <input class="item-form-input textarea" placeholder="Write a description">
-      </div>
-      <div class="col-12 mb-3 row d-flex p-0 flex-row-reverse mt-3">
-        <div (click)="modalMock2Visibility=!modalMock2Visibility" class="item-form-confirm-button d-flex justify-content-center align-items-center">
-          Confirm
-        </div>
-        <div (click)="modalMock2Visibility=!modalMock2Visibility"
-        class="item-form-cancel-button d-flex justify-content-center align-items-center mr-4">
-          Cancel</div>
-      </div>
-    </div>
-  </div>
-</app-modal>
 <!-- ################################################################################################# -->
