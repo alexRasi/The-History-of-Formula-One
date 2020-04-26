@@ -1,10 +1,10 @@
 .modal-overlay {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100vw; /* Full width */
-  height: 100vh; /* Full height */
+  width: 100vw;
+  height: 100vh;
   overflow: auto; /* Enable scroll if needed */
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
@@ -13,10 +13,9 @@
   justify-content: center;
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  width: 30vw; /* Could be more or less, depending on screen size */
-  height: 65vh;
-}
+// .modal-content {
+//   background-color: #fefefe;
+//   width: 30vw; // TODO RESPONSIVE
+//   height: 65vh;
+//   margin-bottom: 5%;
+// }
