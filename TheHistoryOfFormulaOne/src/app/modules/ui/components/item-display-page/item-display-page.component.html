@@ -17,9 +17,55 @@
       <i class="image fa fa-picture-o" aria-hidden="true"></i>
     </div>
   </div>
-</div>
+  <div>
 
-<app-modal>
+
+
+
+
+
+
+
+<!-- MODAL UI MOCKS NEED REFACTOR -->
+<!-- TODO: Generic form component should be created and given as ng-contend inside the modal -->
+<!-- ################################################################################################# -->
+  <div class="pt-5">
+      <h5><strong>Mocked input form 1</strong></h5>
+      <div class="d-flex">
+        <div class="more-info-box mr-4">
+          Lorem
+        </div>
+        <div class="more-info-box mr-4">
+          Ipsum
+        </div>
+        <div class="more-info-box mr-4">
+          Dolor
+        </div>
+        <div class="more-info-box mr-4" (click)="modalMockVisibility=!modalMockVisibility">
+          ...
+        </div>
+      </div>
+    </div>
+    <div class="pt-5 mb-5">
+      <h5><strong>Mocked input form 2</strong></h5>
+      <div class="d-flex">
+        <div class="more-info-box mr-4">
+          Lorem
+        </div>
+        <div class="more-info-box mr-4">
+          Ipsum
+        </div>
+        <div class="more-info-box mr-4">
+          Dolor
+        </div>
+        <div class="more-info-box mr-4" (click)="modalMock2Visibility=!modalMock2Visibility">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal *ngIf="modalMockVisibility">
   <div class="item-form pt-5 pl-5 pr-5 pb-2">
     <div class="item-form-title mt-2 mb-4"><h5><strong>Add Driver</strong></h5></div>
     <div class="row">
@@ -58,12 +104,54 @@
         </select>
       </div>
       <div class="col-12 mb-3 row d-flex p-0 flex-row-reverse mt-3">
-        <div class="item-form-confirm-button d-flex justify-content-center align-items-center">
-          <div>Confirm</div>
+        <div (click)="modalMockVisibility=!modalMockVisibility"class="item-form-confirm-button d-flex justify-content-center align-items-center">
+          Confirm
         </div>
-        <div class="item-form-cancel-button d-flex justify-content-center align-items-center mr-4">
+        <div (click)="modalMockVisibility=!modalMockVisibility" class="item-form-cancel-button d-flex justify-content-center align-items-center mr-4">
           Cancel</div>
       </div>
     </div>
   </div>
 </app-modal>
+<app-modal *ngIf="modalMock2Visibility">
+  <div class="item-form pt-5 pl-5 pr-5 pb-2">
+    <div class="item-form-title mt-2 mb-4"><h5><strong>Add Constructor</strong></h5></div>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <label class="item-input-label col-12 p-0">Name</label>
+        <input class="item-form-input col-12" placeholder="Name">
+      </div>
+      <div  class="col-12 mb-3">
+        <label class="item-input-label col-12 p-0">Type</label>
+        <select class="form-control item-form-input">
+          <option>Type 1</option>
+          <option>Type 2</option>
+        </select>
+      </div>
+      <div  class="col-12 mb-3">
+        <label class="item-input-label col-12 p-0">Year started</label>
+        <select class="form-control item-form-input">
+          <option>1970</option>
+          <option>1971</option>
+        </select>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+        <label class="item-input-label col-12 p-0">Founder</label>
+        <input class="item-form-input" placeholder="Full Name">
+      </div>
+      <div  class="col-12 mb-3">
+        <label class="item-input-label col-12 p-0">Description</label>
+        <input class="item-form-input textarea" placeholder="Write a description">
+      </div>
+      <div class="col-12 mb-3 row d-flex p-0 flex-row-reverse mt-3">
+        <div (click)="modalMock2Visibility=!modalMock2Visibility" class="item-form-confirm-button d-flex justify-content-center align-items-center">
+          Confirm
+        </div>
+        <div (click)="modalMock2Visibility=!modalMock2Visibility"
+        class="item-form-cancel-button d-flex justify-content-center align-items-center mr-4">
+          Cancel</div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<!-- ################################################################################################# -->

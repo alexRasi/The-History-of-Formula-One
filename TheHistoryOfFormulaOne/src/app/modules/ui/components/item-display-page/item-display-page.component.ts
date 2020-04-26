@@ -15,6 +15,9 @@ export class ItemDisplayPageComponent implements OnInit {
 
   pageData: ItemDisplayPageGenericData;
 
+  modalMockVisibility = false;
+  modalMock2Visibility = false;
+
   constructor(
     private route: ActivatedRoute,
     @Inject(Injector) injector: Injector,
