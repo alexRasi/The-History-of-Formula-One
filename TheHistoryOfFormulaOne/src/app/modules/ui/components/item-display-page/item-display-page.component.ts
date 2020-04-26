@@ -41,13 +41,10 @@ export class ItemDisplayPageComponent implements OnInit {
 
     let cacheName = this.queryParameter ? (this.serviceToken['_desc'] + this.queryParameter) : this.serviceToken['_desc']
 
-    console.log(cacheName);
     this.cache = this.cacheService.getCache(cacheName); // serviceToken = entity name
     if (!this.cache) {
       this.cache = this.cacheService.newCache(cacheName);
     }
-
-    console.log(this.cache);
 
    if(this.isEmptyObject(this.cache)) {
      this.loadData()
