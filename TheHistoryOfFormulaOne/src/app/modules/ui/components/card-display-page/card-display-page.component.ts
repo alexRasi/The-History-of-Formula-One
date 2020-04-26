@@ -34,14 +34,14 @@ export class CardDisplayPageComponent implements OnInit {
     private loadingSpinnerService: LoadingSpinnerService,
     public cacheService: CacheService) {
     // Injecting the data subclass fetching service provided during routing
-    this.serviceToken = route.snapshot.data['requiredServiceToken'];
+    this.serviceToken   = route.snapshot.data['requiredServiceToken'];
     this.dataFetchingService = injector.get<DataFetchingService<CardGenericData>>(<any>this.serviceToken);
   }
 
   ngOnInit() {
     this.scrollOnTop();
 
-    const cacheName = this.queryParameter? (this.serviceToken + this.queryParameter) : this.serviceToken
+    let cacheName = this.queryParameter? (this.serviceToken + this.queryParameter) : this.serviceToken
     this.cache = this.cacheService.getCache(cacheName); // serviceToken = entity name
 
     if (!this.cache) {
