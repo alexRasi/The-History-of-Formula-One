@@ -2,7 +2,7 @@ import { CONFIG } from './../../../../../environments/config';
 import { CacheService } from './../../../cache/cache.service';
 import { CardDisplayPageGenericData } from './../../../../models/CardDisplayPageGenericData';
 import { CardGenericData } from 'src/app/models/CardGenericData';
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, InjectionToken } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataFetchingService } from 'src/app/modules/data-fetching/services/data-fetching-base-service/data-fetching.service';
 import { LoadingSpinnerService } from '../../services/loading-spinner-service/loading-spinner.service';
@@ -14,7 +14,7 @@ import { LoadingSpinnerService } from '../../services/loading-spinner-service/lo
 })
 export class CardDisplayPageComponent implements OnInit {
   public dataFetchingService: DataFetchingService<CardGenericData>;
-  serviceToken: string;
+  serviceToken: InjectionToken<string>;
 
   pageData: CardDisplayPageGenericData = {} as CardDisplayPageGenericData;
   dataSource: CardGenericData[];
