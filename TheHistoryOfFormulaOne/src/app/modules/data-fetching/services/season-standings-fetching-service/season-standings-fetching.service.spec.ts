@@ -17,7 +17,7 @@ describe('SeasonStandingsFetchingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch a SeasonStandingDTO object and return it transformed to CardDisplayPageGenericData', async () => {
+  it('should fetch a SeasonStandingResponseDTO array and return it transformed to CardDisplayPageGenericData', async () => {
     const service: SeasonStandingsFetchingService = TestBed.get(SeasonStandingsFetchingService)
     spyOn(service, 'getData').and.returnValue(of(SeasonStandingsResponseDTOMock));
 
