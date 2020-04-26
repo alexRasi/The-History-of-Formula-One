@@ -6,11 +6,11 @@ import { SeasonsFetchingService } from './modules/data-fetching/services/seasons
 import { DriversFetchingService } from './modules/data-fetching/services/drivers-fetching-service/drivers-fetching.service';
 import { ConstructorsFetchingService } from './modules/data-fetching/services/constructors-fetching-service/constructors-fetching.service';
 
-const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("SeasonsService");
-const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("DriversService");
-const DRIVER_ITEM_SERVICE_TOKEN = new InjectionToken<string>("DriverItemService");
-const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("ConstructorsService");
-const CONSTRUCTOR_ITEM_SERVICE_TOKEN = new InjectionToken<string>("ConstructorItemService");
+const SEASONS_SERVICE_TOKEN = new InjectionToken<string>("Seasons");
+const DRIVERS_SERVICE_TOKEN = new InjectionToken<string>("Drivers");
+const DRIVER_ITEM_SERVICE_TOKEN = new InjectionToken<string>("DriverItem");
+const CONSTRUCTORS_SERVICE_TOKEN = new InjectionToken<string>("Constructors");
+const CONSTRUCTOR_ITEM_SERVICE_TOKEN = new InjectionToken<string>("ConstructorItem");
 
 const routes: Routes = [
   {

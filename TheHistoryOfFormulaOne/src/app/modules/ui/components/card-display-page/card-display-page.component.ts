@@ -41,11 +41,12 @@ export class CardDisplayPageComponent implements OnInit {
   ngOnInit() {
     this.scrollOnTop();
 
-    let cacheName = this.queryParameter? (this.serviceToken + this.queryParameter) : this.serviceToken
-    this.cache = this.cacheService.getCache(cacheName); // serviceToken = entity name
+    // create a unique cache id with the service's token name and the queryParameter
+    let cacheName = this.queryParameter? (this.serviceToken['_desc'] + this.queryParameter) : this.serviceToken['_desc']
 
+    this.cache = this.cacheService.getCache(cacheName); // serviceToken = entity name
     if (!this.cache) {
-      this.cache = this.cacheService.newCache(this.serviceToken);
+      this.cache = this.cacheService.newCache(cacheName);
       this.cache.cards = [];
     }
 
