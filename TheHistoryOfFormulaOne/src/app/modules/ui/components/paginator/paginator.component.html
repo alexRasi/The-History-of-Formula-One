@@ -6,7 +6,7 @@
       </a>
     </li>
     <li class="page-item"><a class="page-link" (click)="previous()"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-    <li class="page-item" ><input class="page-link page-input w-10" [(ngModel)]="currentPage" (keyup.enter)="emitPageChange()"></li>
+    <li class="page-item" ><input class="page-link page-input w-10" [(ngModel)]="currentPage" (keyup.enter)="emitPageChangeByEnter()"></li>
     <li class="page-item"><a class="page-link total-pages">of {{totalPages}} </a></li>
     <li class="page-item" title="Next"><a class="page-link next-page" (click)="next()"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
     <li class="page-item" title="Last page">

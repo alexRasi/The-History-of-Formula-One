@@ -39,7 +39,10 @@ export class PaginatorComponent {
     this.pageClickedEvent.emit(this.currentPage)
   }
 
-  emitPageChange() {
+  emitPageChangeByEnter() {
+    if (this.currentPage > this.totalPages) {
+      this.currentPage = this.totalPages;
+    }
     this.pageClickedEvent.emit(this.currentPage);
   }
 
