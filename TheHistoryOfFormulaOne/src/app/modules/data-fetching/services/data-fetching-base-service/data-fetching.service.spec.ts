@@ -17,7 +17,7 @@ class TestDataFetchingService extends DataFetchingService<CardGenericData> {
   }
 }
 
-describe('DataFetchingService', () => {
+describe('DataFetching Base Service', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [HttpClientTestingModule],
     providers: [TestDataFetchingService]

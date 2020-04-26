@@ -32,7 +32,7 @@ describe('SpinLoaderComponent', () => {
       fixture.detectChanges();
     }));
 
-    it('loader should be rendered ', async () => {
+    it('loader should be displayed ', async () => {
       expect(fixture.debugElement.nativeElement.querySelector('.lds-ripple')).toBeTruthy();
     });
 
@@ -44,7 +44,7 @@ describe('SpinLoaderComponent', () => {
       fixture.detectChanges();
     }));
 
-    it('loader should not be rendered ', async () => {
+    it('loader should not be displayed ', async () => {
       expect(fixture.debugElement.nativeElement.querySelector('.lds-ripple')).toBeFalsy();
     });
 
