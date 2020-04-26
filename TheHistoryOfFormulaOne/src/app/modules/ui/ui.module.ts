@@ -14,6 +14,7 @@ import { ItemDisplayPageComponent } from './components/item-display-page/item-di
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ItemDisplayPageComponent,
     PaginatorComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SpinLoaderComponent,
     ItemDisplayPageComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ModalComponent
   ]
 })
 export class UiModule { }
