@@ -1,6 +1,6 @@
 # The-History-of-Formula-One
 A simple API Data Explorer on top of which is being built an Angular application which visualizes some of the Ergast Developer API data.
-The Ergast Developer API is a service which provides a historical record of motor racing data. hcttp://ergast.com
+The Ergast Developer API is a service which provides a historical record of motor racing data. http://ergast.com
 It is responsive, supports nested caching, pagination and its fully configurable.
 
 # Description
