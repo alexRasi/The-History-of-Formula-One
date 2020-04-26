@@ -33,12 +33,11 @@ describe('CacheService', () => {
     expect(cache['datasource']).toEqual(CACHE_MOCK_DATA);
   })
 
-  it('should retrieve data from with an offset and a limit from a cache array', () => {
+  it('should retrieve the above data with an offset and a limit', () => {
 
     const cache = service.getCache('TEST');
     cache['datasource'] = [];
     service.cache(cache['datasource'],10,0, CACHE_MOCK_DATA);
-
 
     expect(service.getFromCache(cache['datasource'], 10, 0)).toEqual(CACHE_MOCK_DATA);
   })
