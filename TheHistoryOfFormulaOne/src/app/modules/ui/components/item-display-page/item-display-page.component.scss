@@ -133,6 +133,18 @@
     padding:2px;
   }
 
+  .more-info {
+    padding-left: 5px;
+  }
+
+  .item-form-confirm-button {
+    width: 20vw;
+  }
+
+  .item-form-cancel-button {
+    width: 20vw;
+  }
+
   .item-form-input {
     border: 1px solid #D0D0D080;
     background-color: #F1F1F180;
@@ -141,9 +153,10 @@
   }
 
   .item-form {
-    height: 95vh;
-    width: 90vw;
+    height: 97vh;
+    width: 95vw;
     margin:0;
+    padding: 15px!important;
   }
 }
 
