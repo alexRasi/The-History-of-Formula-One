@@ -3,14 +3,7 @@ import { DataFetchingService } from './data-fetching.service';
 import { SeasonsResponseDTO } from 'src/app/models/dtos/SeasonsReponseDTO';
 import { Observable, of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
-interface CardGenericData {
-  imageLink?: string;
-  altImageTitle?: string;
-  label: string;
-  description: string;
-  moreInfoLink: string;
-}
+import { CardGenericData } from 'src/app/models/CardGenericData';
 
 
 class TestDataFetchingService extends DataFetchingService<CardGenericData> {
