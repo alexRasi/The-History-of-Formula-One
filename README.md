@@ -1,7 +1,9 @@
 # The-History-of-Formula-One
+ It's hosted at: https://alexrasi.github.io/TheHistoryOfFormulaOne
+
 A simple API Data Explorer on top of which is being built an Angular application which visualizes some of the Ergast Developer API data.
-The Ergast Developer API is a service which provides a historical record of motor racing data. http://ergast.com
-It is responsive, supports nested caching, pagination and it's fully configurable.
+The Ergast Developer API is a service which provides a historical record of motor racing data. http://ergast.com.
+The explorer is responsive, supports nested caching, pagination and it's fully configurable.
 
 # Description
 This craft is not only a History of Formula 1 application, but a general simple API Data Explorer which can be integrated
@@ -33,7 +35,7 @@ External dependencies are the bootstrap library and the fontawesome icons. Fonta
 ## How to run it locally
 1. We need to use the Node.js package manager. If you don't have it installed, download and install the Node.js runtime. 
 2. We will use the Angular CLI. To install it run `npm install -g @angular/cli`.
-3. Run `npm install to install` the required packages.
+3. Run `npm install` to install the required packages.
 4. Run `ng serve --open` to serve and open it in your browser at `http://localhost:4200/`.
 
 ## Running unit tests
